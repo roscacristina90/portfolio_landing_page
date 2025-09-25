@@ -1,3 +1,505 @@
-body{
-background-color:red ;
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(
+    270deg,
+    rgba(62, 33, 46, 1) 9.132740646600723%,
+    rgba(38, 19, 34, 1) 24.037262797355652%
+  ) !important;
+}
+
+body {
+  background: linear-gradient(
+    270deg,
+    rgba(62, 33, 46, 1) 9.132740646600723%,
+    rgba(38, 19, 34, 1) 24.037262797355652%
+  ) !important;
+  min-height: 100vh !important;
+}
+
+.portfolio-landing-page,
+.portfolio-landing-page * {
+  box-sizing: border-box;
+}
+.portfolio-landing-page {
+  background: linear-gradient(
+    270deg,
+    rgba(62, 33, 46, 1) 9.132740646600723%,
+    rgba(38, 19, 34, 1) 24.037262797355652%
+  ) !important;
+  height: 100vh;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+.frame-389 {
+  display: flex;
+  flex-direction: column;
+  gap: 2.125rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 40.0625rem;
+  position: absolute;
+  left: 5rem;
+  top: 15.75rem;
+}
+.hey-i-m-cristina {
+  text-align: left;
+  font-family: "Poppins-SemiBold", sans-serif;
+  font-size: 2.25rem;
+  line-height: 115%;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+  position: relative;
+  align-self: stretch;
+  height: 2.1875rem;
+}
+.hey-i-m-cristina-span {
+  color: #ece9eb;
+}
+.hey-i-m-cristina-span2 {
+  color: #ffe8fa;
+}
+.front-end-developer {
+  color: #fff9fe;
+  text-align: left;
+  font-family: "Raleway-Bold", sans-serif;
+  font-size: 4rem;
+  line-height: 115%;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  position: relative;
+  align-self: stretch;
+}
+.i-m-starting-out-in-design-and-development-with-a-passion-for-learning-and-building-this-portfolio-is-a-glimpse-into-my-growth-and-the-projects-i-m-proud-of-so-far {
+  color: #f2f2f2;
+  text-align: left;
+  font-family: "Roboto-Regular", sans-serif;
+  font-size: 1rem;
+  line-height: 115%;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+  position: relative;
+  width: 30.375rem;
+  height: 3.375rem;
+}
+.frame-385 {
+  display: flex;
+  flex-direction: row;
+  gap: 7rem;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 29.875rem;
+  position: relative;
+}
+.frame-381 {
+  border-radius: 5rem;
+  border: 0.5px solid white;
+  padding: 0.58875rem 1.76625rem 0.58875rem 1.76625rem;
+  flex-shrink: 0;
+  width: 11.3125rem;
+  height: 2.74rem;
+  position: relative;
+}
+.m-y-portfolio {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Poppins-Bold", sans-serif;
+  font-size: 1.098894715309143rem;
+  line-height: 145%;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  left: 1.6875rem;
+  top: 0.58875rem;
+  border-radius: 5rem;
+  border-width: 0.05875rem;
+}
+
+.frame-381:hover {
+  background: linear-gradient(
+    52.49deg,
+    rgba(74, 61, 75, 1) 16.344648599624634%,
+    rgba(247, 211, 50, 1) 25.484153628349304%,
+    rgba(113, 55, 118, 1) 54.807889461517334%
+  ) !important;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.frame-382 {
+   border-radius: 5rem;
+  border: 0.5px solid white;
+  background-clip: padding-box;
+  padding: 0.58875rem 1.76625rem 0.58875rem 1.76625rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.294375rem;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 11.3125rem;
+  height: 2.74rem;
+  position: relative;
+}
+.resume {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Poppins-Bold", sans-serif;
+  font-size: 1.098894715309143rem;
+  line-height: 145%;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: relative;
+  border-radius: 5rem;
+  border-width: 0.05875rem;
+}
+
+.frame-382:hover {
+  background: linear-gradient(
+    52.49deg,
+    rgba(74, 61, 75, 1) 16.344648599624634%,
+    rgba(247, 211, 50, 1) 25.484153628349304%,
+    rgba(113, 55, 118, 1) 54.807889461517334%
+  ) !important;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.frame-383 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 7.25rem;
+  height: 2.25rem;
+  position: absolute;
+  left: 5rem;
+  top: 1.75rem;
+}
+.profile-logo {
+  display: flex;
+  flex-direction: row;
+  gap: 0rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 1.6875rem;
+  position: relative;
+}
+.frame-388 {
+  width: 47.6875rem;
+  height: 61.139375rem;
+  position: absolute;
+  right: 5rem;
+  top: -8.13rem;
+}
+.frame-384 {
+  background: #432d42;
+  border-radius: 9.375rem;
+  width: 40rem;
+  height: 61.129375rem;
+  position: absolute;
+  right: 0rem;
+  top: 0.01rem;
+  transform-origin: 0 0;
+  transform: rotate(-0.018deg) scale(1, 1);
+  overflow: hidden;
+  mix-blend-mode: soft-light;
+}
+.profile-image {
+  width: 40rem;
+  height: 48.1875rem;
+  background-image: url('image.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom-left-radius: 9.375rem !important;
+  border-bottom-right-radius: 9.375rem !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  position: absolute;
+  bottom: 0;
+  right: 0rem;
+  z-index: 10;
+  overflow: hidden;
+}
+.frame-3822 {
+  border-radius: 5rem;
+  border: 0.5px solid white;
+  background-clip: padding-box;
+  padding: 0.58875rem 1.76625rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.294375rem;
+  align-items: center;
+  justify-content: center;
+  width: 11.3125rem;
+  height: 2.74rem;
+  position: absolute;
+  right: 5rem;
+  top: 1.25rem;
+}
+.contact-me {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Poppins-Bold", sans-serif;
+  font-size: 1.098894715309143rem;
+  line-height: 145%;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: relative;
+   border-radius: 5rem;
+  border-width: 0.05875rem;
+}
+
+.frame-3822:hover {
+  background: linear-gradient(
+    52.49deg,
+    rgba(74, 61, 75, 1) 16.344648599624634%,
+    rgba(247, 211, 50, 1) 25.484153628349304%,
+    rgba(113, 55, 118, 1) 54.807889461517334%
+  ) !important;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+/* RESPONSIVE DESIGN - MEDIA QUERIES */
+
+/* Large Desktop (1200px and up) */
+@media (max-width: 1200px) {
+  .frame-388 {
+    right: 2rem;
+    width: 40rem;
+  }
+  
+  .frame-384 {
+    width: 35rem;
+  }
+  
+  .profile-image {
+    width: 35rem;
+  }
+  
+  .frame-3822 {
+    right: 2rem;
+  }
+}
+
+/* Medium Desktop/Tablet (992px and below) */
+@media (max-width: 992px) {
+  .portfolio-landing-page {
+    overflow-x: auto;
+  }
+  
+  .frame-389 {
+    left: 2rem;
+    width: 35rem;
+    top: 10rem;
+  }
+  
+  .front-end-developer {
+    font-size: 3rem;
+  }
+  
+  .frame-385 {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    width: auto;
+  }
+  
+  .frame-388 {
+    right: 1rem;
+    top: -5rem;
+    width: 35rem;
+  }
+  
+  .frame-384 {
+    width: 30rem;
+    height: 50rem;
+  }
+  
+  .profile-image {
+    width: 30rem;
+    height: 40rem;
+  }
+}
+
+/* Tablet (768px and below) */
+@media (max-width: 768px) {
+  .frame-389 {
+    left: 1rem;
+    right: 1rem;
+    width: auto;
+    max-width: calc(100% - 2rem);
+    top: 5rem;
+    gap: 1.5rem;
+  }
+  
+  .hey-i-m-cristina {
+    font-size: 1.8rem;
+    height: auto;
+  }
+  
+  .front-end-developer {
+    font-size: 2.5rem;
+  }
+  
+  .i-m-starting-out-in-design-and-development-with-a-passion-for-learning-and-building-this-portfolio-is-a-glimpse-into-my-growth-and-the-projects-i-m-proud-of-so-far {
+    width: auto;
+    height: auto;
+    font-size: 0.9rem;
+  }
+  
+  .frame-385 {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+  
+  .frame-381, .frame-382 {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  .frame-383 {
+    left: 1rem;
+    top: 1rem;
+  }
+  
+  .frame-388 {
+    position: relative;
+    right: auto;
+    top: 2rem;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    height: auto;
+  }
+  
+  .frame-384 {
+    position: relative;
+    right: auto;
+    width: 100%;
+    height: 400px;
+    transform: none;
+    left: 0;
+  }
+  
+  .profile-image {
+    position: relative;
+    right: auto;
+    width: 100%;
+    height: 300px;
+    bottom: auto;
+    top: 50px;
+  }
+  
+  .frame-3822 {
+    position: relative;
+    right: auto;
+    top: 1rem;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile (576px and below) */
+@media (max-width: 576px) {
+  .portfolio-landing-page {
+    padding: 1rem;
+  }
+  
+  .frame-389 {
+    left: 0;
+    right: 0;
+    top: 2rem;
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+  
+  .hey-i-m-cristina {
+    font-size: 1.5rem;
+  }
+  
+  .front-end-developer {
+    font-size: 2rem;
+  }
+  
+  .i-m-starting-out-in-design-and-development-with-a-passion-for-learning-and-building-this-portfolio-is-a-glimpse-into-my-growth-and-the-projects-i-m-proud-of-so-far {
+    font-size: 0.85rem;
+    line-height: 130%;
+  }
+  
+  .frame-381, .frame-382 {
+    width: 100%;
+    max-width: 200px;
+    padding: 0.5rem 1rem;
+    height: 2.5rem;
+  }
+  
+  .m-y-portfolio, .resume {
+    font-size: 0.9rem;
+  }
+  
+  .frame-383 {
+    left: 0.5rem;
+    top: 0.5rem;
+    width: 6rem;
+  }
+  
+  .frame-388 {
+    max-width: 300px;
+    top: 1rem;
+  }
+  
+  .frame-384 {
+    height: 350px;
+  }
+  
+  .profile-image {
+    height: 250px;
+    top: 70px;
+  }
+  
+  .frame-3822 {
+    width: 100%;
+    max-width: 200px;
+    padding: 0.5rem 1rem;
+    height: 2.5rem;
+  }
+  
+  .contact-me {
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra Small Mobile (480px and below) */
+@media (max-width: 480px) {
+  .hey-i-m-cristina {
+    font-size: 1.3rem;
+  }
+  
+  .front-end-developer {
+    font-size: 1.8rem;
+  }
+  
+  .frame-388 {
+    max-width: 280px;
+  }
+  
+  .frame-384 {
+    height: 320px;
+  }
+  
+  .profile-image {
+    height: 220px;
+  }
 }
