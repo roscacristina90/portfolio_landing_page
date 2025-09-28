@@ -2,39 +2,50 @@
 .portfolio-page {
     height: 100vh;
     max-height: 100vh;
-    background: linear-gradient(
-        0deg,
-        rgba(62, 33, 46, 1) 0%,           /* Main page dark color */
-        rgba(255, 234, 167, 0.4) 15%,     /* Yellow from btn-1 mixed */
-        rgba(38, 19, 34, 0.9) 30%,        /* Main page darker color */
-        rgba(250, 177, 160, 0.3) 45%,     /* Orange from btn-2 mixed */
-        rgba(62, 33, 46, 0.8) 60%,        /* Main page color variation */
-        rgba(168, 230, 207, 0.3) 75%,     /* Green from btn-3 mixed */
-        rgba(221, 160, 221, 0.4) 90%,     /* Purple from btn-4 mixed */
-        rgba(38, 19, 34, 1) 100%          /* Main page original end */
-    ) !important;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(40, 40, 40, 0.8) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(60, 60, 60, 0.6) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(30, 30, 30, 0.9) 0%, transparent 70%),
+        linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 30%, #000000 70%, #0f0f0f 100%);
     padding: 15px;
-    font-family: 'Arial', sans-serif;
+    font-family: "Roboto-Regular", sans-serif;
     overflow: hidden;
+    position: relative;
 }
 
 /* Header */
 .header {
     display: flex;
     align-items: center;
-    margin-bottom: 40px;
-    position: relative;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    justify-content: flex-start;
+    z-index: 20;
 }
 
 .back-button a {
     color: white;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 700;
+    font-family: "Poppins-Bold", sans-serif;
     padding: 10px 20px;
     border-radius: 25px;
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.back-button .arrow {
+    font-size: 18px;
+    text-transform: none;
+    display: inline-block;
 }
 
 .back-button a:hover {
@@ -42,121 +53,176 @@
     transform: translateX(-5px);
 }
 
-.page-title {
-    color: white;
-    font-size: 36px;
-    font-weight: bold;
-    text-align: center;
-    flex: 1;
-    margin-right: 120px; /* Balance the back button */
-}
-
 /* Main Content */
 .main-content {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 100px);
+    height: 100vh;
     width: 100%;
     position: relative;
     overflow: hidden;
+}
+
+/* Background Elements */
+.main-content::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        radial-gradient(circle at 25% 25%, rgba(80, 80, 80, 0.1) 0%, transparent 25%),
+        radial-gradient(circle at 75% 75%, rgba(100, 100, 100, 0.05) 0%, transparent 25%),
+        radial-gradient(circle at 50% 60%, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
+    animation: backgroundShift 20s ease-in-out infinite;
+    z-index: 0;
+}
+
+@keyframes backgroundShift {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(5deg) scale(1.1); }
+}
+
+/* Additional light glow animation */
+@keyframes lightPulse {
+    0%, 100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
 }
 
 /* Tablet Mockup */
 .tablet-mockup {
-    perspective: 1200px;
+    perspective: 1500px;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+/* Light effects behind tablet */
+.tablet-mockup::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 900px;
+    height: 700px;
+    background: 
+        radial-gradient(ellipse 60% 40% at center, rgba(220, 220, 220, 0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 60% at center, rgba(190, 190, 190, 0.12) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(40px);
+    animation: lightPulse 8s ease-in-out infinite;
+}
+
+.tablet-mockup::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1200px;
+    height: 900px;
+    background: 
+        radial-gradient(ellipse 70% 50% at center, rgba(160, 160, 160, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse 90% 70% at center, rgba(200, 200, 200, 0.08) 0%, transparent 80%);
+    border-radius: 50%;
+    z-index: -2;
+    filter: blur(80px);
+    animation: lightPulse 12s ease-in-out infinite reverse;
 }
 
 .tablet-frame {
-    width: 900px;
-    height: 700px;
-    background: linear-gradient(145deg, #f5f5f7 0%, #e1e1e6 100%);
-    border-radius: 18px;
-    padding: 12px;
+    width: 800px;
+    height: 600px;
+    background: linear-gradient(145deg, #2a2a2a 0%, #1a1a1a 50%, #0a0a0a 100%);
+    border-radius: 12px;
+    padding: 8px;
     box-shadow: 
-        0 35px 120px rgba(0, 0, 0, 0.25),
-        0 15px 50px rgba(0, 0, 0, 0.15),
-        inset 0 2px 8px rgba(255, 255, 255, 0.9),
-        inset 0 -1px 2px rgba(0, 0, 0, 0.1);
+        0 25px 80px rgba(0, 0, 0, 0.6),
+        0 15px 40px rgba(0, 0, 0, 0.4),
+        0 8px 20px rgba(0, 0, 0, 0.3),
+        0 0 60px rgba(255, 255, 255, 0.1),
+        0 0 120px rgba(200, 200, 200, 0.05),
+        inset 0 2px 10px rgba(255, 255, 255, 0.05),
+        inset 0 -2px 5px rgba(0, 0, 0, 0.8);
     position: relative;
-    transform: rotateX(10deg) rotateY(-2deg);
-    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    border: 2px solid #d2d2d7;
+    transform: none;
+    border: 2px solid #333333;
     margin: 0 auto;
-    max-width: 95vw;
-    max-height: 85vh;
+    max-width: 90vw;
+    max-height: 80vh;
 }
 
-.tablet-frame:hover {
-    transform: rotateX(6deg) rotateY(-1deg) scale(1.02);
-}
+/* Tablet stays static - no hover movement */
 
 .tablet-screen {
     width: 100%;
-    height: 676px;
-    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-    border-radius: 12px;
-    padding: 55px;
+    height: 584px;
+    background: linear-gradient(135deg, #000000 0%, #0f0f0f 50%, #1a1a1a 100%);
+    border-radius: 8px;
+    padding: 50px;
     box-shadow: 
-        inset 0 3px 20px rgba(0, 0, 0, 0.6),
-        inset 0 1px 5px rgba(0, 0, 0, 0.8),
-        0 1px 2px rgba(255, 255, 255, 0.1);
+        inset 0 5px 30px rgba(0, 0, 0, 0.9),
+        inset 0 2px 10px rgba(0, 0, 0, 0.8),
+        inset 0 -1px 3px rgba(255, 255, 255, 0.02);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
-    border: 1px solid #333333;
+    border: 1px solid #1a1a1a;
 }
 
-/* iPad Pro Design Elements */
+/* Dark iPad Pro Design Elements */
 .tablet-frame::before {
     content: '';
     position: absolute;
-    top: 6px;
+    top: 8px;
     left: 50%;
     transform: translateX(-50%);
-    width: 140px;
-    height: 6px;
-    background: linear-gradient(90deg, #c7c7cc 0%, #a1a1a6 30%, #8e8e93 50%, #a1a1a6 70%, #c7c7cc 100%);
+    width: 120px;
+    height: 5px;
+    background: linear-gradient(90deg, #444444 0%, #555555 30%, #666666 50%, #555555 70%, #444444 100%);
     border-radius: 3px;
     box-shadow: 
-        inset 0 1px 2px rgba(0, 0, 0, 0.2),
-        0 1px 1px rgba(255, 255, 255, 0.3);
+        inset 0 1px 2px rgba(255, 255, 255, 0.1),
+        0 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 /* Front camera system */
 .tablet-frame::after {
     content: '';
     position: absolute;
-    top: 4px;
+    top: 6px;
     left: 50%;
-    transform: translateX(55px);
-    width: 12px;
-    height: 12px;
-    background: radial-gradient(circle, #0a0a0a 30%, #2a2a2a 70%, #4a4a4a 100%);
+    transform: translateX(45px);
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, #000000 20%, #1a1a1a 60%, #333333 100%);
     border-radius: 50%;
     box-shadow: 
-        0 2px 4px rgba(0, 0, 0, 0.5),
-        inset 0 1px 2px rgba(255, 255, 255, 0.1),
-        inset 0 -1px 1px rgba(0, 0, 0, 0.3);
+        0 2px 6px rgba(0, 0, 0, 0.8),
+        inset 0 1px 2px rgba(255, 255, 255, 0.05),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.9);
 }
 
 /* Dynamic Island / Sensor Area */
 .tablet-screen::before {
     content: '';
     position: absolute;
-    top: 18px;
+    top: 20px;
     left: 50%;
-    transform: translateX(-40px);
-    width: 80px;
+    transform: translateX(-35px);
+    width: 70px;
     height: 3px;
-    background: linear-gradient(90deg, transparent 0%, #2a2a2a 20%, #1a1a1a 50%, #2a2a2a 80%, transparent 100%);
+    background: linear-gradient(90deg, transparent 0%, #333333 20%, #1a1a1a 50%, #333333 80%, transparent 100%);
     border-radius: 2px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 /* Portfolio Buttons */
@@ -164,30 +230,30 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 45px;
+    gap: 35px;
     width: 100%;
     height: 100%;
-    padding: 40px;
+    padding: 30px;
 }
 
 .portfolio-btn {
-    background: rgba(255, 255, 255, 0.98);
-    border-radius: 26px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
     box-shadow: 
-        0 15px 40px rgba(0, 0, 0, 0.15),
-        0 8px 25px rgba(0, 0, 0, 0.08),
-        inset 0 2px 0 rgba(255, 255, 255, 0.8),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        0 5px 15px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(40px) saturate(200%);
-    min-height: 120px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px) saturate(150%);
+    min-height: 100px;
 }
 
 .portfolio-btn::before {
@@ -197,22 +263,22 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, transparent 0%, rgba(64, 81, 78, 0.05) 100%);
+    background: transparent;
     opacity: 0;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.3s ease;
 }
 
 .portfolio-btn:hover::before {
-    opacity: 1;
+    opacity: 0;
 }
 
 .portfolio-btn:hover {
-    transform: translateY(-4px) scale(1.02);
+    transform: translateY(-6px) scale(1.05);
     box-shadow: 
-        0 15px 40px rgba(0, 0, 0, 0.15),
-        0 8px 25px rgba(0, 0, 0, 0.08),
+        0 20px 50px rgba(0, 0, 0, 0.4),
+        0 10px 25px rgba(0, 0, 0, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(40px) saturate(200%);
+    backdrop-filter: blur(30px) saturate(180%);
 }
 
 .portfolio-btn:active {
@@ -226,40 +292,66 @@
 }
 
 .btn-content h3 {
-    font-size: 26px;
+    font-size: 22px;
     font-weight: 700;
-    color: #1d1d1f;
-    margin-bottom: 8px;
-    letter-spacing: -0.6px;
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+    font-family: "Poppins-Bold", sans-serif;
+    color: #ffffff;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
     text-rendering: optimizeLegibility;
     text-align: center;
+    line-height: 115%;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
 }
 
 .btn-content p {
-    font-size: 17px;
-    color: #8e8e93;
-    font-weight: 500;
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
-    letter-spacing: -0.2px;
+    font-size: 15px;
+    color: #ece9eb;
+    font-weight: 400;
+    font-family: "Roboto-Regular", sans-serif;
+    letter-spacing: -0.01em;
     text-align: center;
+    line-height: 115%;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
 }
 
 /* Individual Button Styles */
 .btn-1 {
-    background: linear-gradient(135deg, #fff 0%, #ffeaa7 100%);
+    background: 
+        linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%),
+        url('https://roscacristina90.github.io/CoteBrasserie/C%C3%B4te%20Brasserie_files/2-what-is-fine-dining-example2.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 .btn-2 {
-    background: linear-gradient(135deg, #fff 0%, #fab1a0 100%);
+    background: 
+        linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%),
+        url('https://roscacristina90.github.io/services-website/pictures/minimalist-black-interior-with-black-sofa-1268-31786-10.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 .btn-3 {
-    background: linear-gradient(135deg, #fff 0%, #a8e6cf 100%);
+    background: 
+        linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%),
+        url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 .btn-4 {
-    background: linear-gradient(135deg, #fff 0%, #dda0dd 100%);
+    background: 
+        linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%),
+        url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 /* Responsive Design */
