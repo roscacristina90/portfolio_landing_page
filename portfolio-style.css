@@ -24,11 +24,12 @@ h1 {
 .header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     margin-bottom: 20px;
     position: absolute;
     top: 60px;
     left: 20px;
-    justify-content: flex-start;
+    right: 20px;
     z-index: 20;
 }
 
@@ -54,6 +55,41 @@ h1 {
     font-size: 18px;
     text-transform: none;
     display: inline-block;
+}
+
+/* Header Buttons */
+.header-buttons {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.resume-button a,
+.contact-button a {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: "Poppins-Bold", sans-serif;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: 0.5px solid white;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.resume-button a:hover,
+.contact-button a:hover {
+    background: linear-gradient(
+        52.49deg,
+        rgba(74, 61, 75, 1) 16.344648599624634%,
+        rgba(247, 211, 50, 1) 25.484153628349304%,
+        rgba(113, 55, 118, 1) 54.807889461517334%
+    );
+    transform: scale(1.05);
 }
 
 .back-button a:hover {

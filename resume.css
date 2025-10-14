@@ -48,7 +48,7 @@ button {
   width: 100vw;
   height: auto;
   margin: 0;
-  padding: 50px 0 0 0;
+  padding: 100px 0 100px 0;
   background: #473241;
   overflow-x: hidden;
   overflow-y: visible;
@@ -793,7 +793,7 @@ button {
 .employment {
   position: relative;
   height: 35px;
-  margin: 120px 0 0px 240px;
+  margin: 120px 0 0px 250px;
   color: #ebe9eb;
   font-family: Poppins, var(--default-font-family);
   font-size: 36px;
@@ -963,7 +963,7 @@ button {
   display: block;
   position: relative;
   height: 35px;
-  margin: 120px 0 30px 240px;
+  margin: 120px 0 30px 250px;
   color: #ebe9eb;
   font-family: Poppins, var(--default-font-family);
   font-size: 36px;
