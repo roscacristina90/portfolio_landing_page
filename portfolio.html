@@ -37,60 +37,192 @@
     <title>My Portfolio</title>
 </head>
 <body>
+    <!-- Particle System -->
+    <div class="particles-container">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
     <div class="portfolio-page">
         <!-- Header -->
-        <h1>Projects</h1>
         <div class="header">
             <div class="back-button">
                 <a href="index.html"><span class="arrow">←</span> BACK</a>
             </div>
+            <!-- Project Title -->
+            <div class="project-title-section">
+                <h2 class="project-title">MY PROJECTS</h2>
+                <div class="title-underline"></div>
+                <p class="project-subtitle">Interactive Portfolio Collection</p>
+            </div>
+            <div class="header-spacer"></div>
         </div>
 
         <!-- Main Content -->
         <div class="main-content">
-            <!-- Tablet Mockup -->
-            <div class="tablet-mockup">
-                <!-- Tablet Frame -->
-                <div class="tablet-frame">
-                    <!-- Tablet Screen -->
-                    <div class="tablet-screen">
-                        <!-- Portfolio Buttons Container -->
-                        <div class="portfolio-buttons">
-                            <a href="https://roscacristina90.github.io/CoteBrasserie/" target="_blank" class="portfolio-btn btn-1">
-                                <div class="btn-content">
-                                    <h3>Cote Brasserie</h3>
-                                    <p>Restaurant Website</p>
-                                </div>
-                            </a>
-                            
-                            <a href="https://roscacristina90.github.io/services-website/" target="_blank" class="portfolio-btn btn-2">
-                                <div class="btn-content">
-                                    <h3>Service Website</h3>
-                                    <p>Business Services</p>
-                                </div>
-                            </a>
-                            
-                            <a href="https://roscacristina90.github.io/E-PLANT/" target="_blank" class="portfolio-btn btn-3">
-                                <div class="btn-content">
-                                    <h3>E-Plant</h3>
-                                    <p>E-commerce Store</p>
-                                </div>
-                            </a>
-                            
-                            <a href="https://roscacristina90.github.io/about-me/" target="_blank" class="portfolio-btn btn-4">
-                                <div class="btn-content">
-                                    <h3>About me</h3>
-                                    <p>Course project</p>
-                                </div>
-                            </a>
+            
+            <!-- Portfolio Buttons Container -->
+            <div class="portfolio-buttons">
+                <!-- Top Row - 3 buttons -->
+                <div class="button-row row-top">
+                    <a href="https://roscacristina90.github.io/CoteBrasserie/" target="_blank" class="portfolio-btn btn-1">
+                        <div class="btn-content">
+                            <h3>Cote Brasserie</h3>
+                            <p>Restaurant Website</p>
                         </div>
-                    </div>
+                    </a>
                     
-                    <!-- Tablet Home Button -->
-                    <div class="home-button"></div>
+                    <a href="https://roscacristina90.github.io/services-website/" target="_blank" class="portfolio-btn btn-2">
+                        <div class="btn-content">
+                            <h3>Service Website</h3>
+                            <p>Business Services</p>
+                        </div>
+                    </a>
+                    
+                    <a href="https://roscacristina90.github.io/E-PLANT/" target="_blank" class="portfolio-btn btn-3">
+                        <div class="btn-content">
+                            <h3>E-Plant</h3>
+                            <p>E-commerce Store</p>
+                        </div>
+                    </a>
                 </div>
-            </div>
+                
+                <!-- Middle Row - 2 buttons (centered) -->
+                <div class="button-row row-middle">
+                    <a href="https://roscacristina90.github.io/about-me/" target="_blank" class="portfolio-btn btn-4">
+                        <div class="btn-content">
+                            <h3>About me</h3>
+                            <p>Course project</p>
+                        </div>
+                    </a>
+                    
+                    <a href="https://www.behance.net/gallery/199761669/rhode-e-ccomerce-redesign" target="_blank" class="portfolio-btn btn-5">
+                        <div class="btn-content">
+                            <h3>Rhode Redesign</h3>
+                            <p>UI/UX Design</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Bottom Row - 3 buttons -->
+                <div class="button-row row-bottom">
+                    <a href="https://www.behance.net/gallery/202920177/dashboard" target="_blank" class="portfolio-btn btn-7">
+                        <div class="btn-content">
+                            <h3>Dashboard</h3>
+                            <p>UI/UX Design</p>
+                        </div>
+                    </a>
+                    
+                    <a href="https://www.behance.net/gallery/202919975/WOW-EFECT-HERO-SECTION" target="_blank" class="portfolio-btn btn-8">
+                        <div class="btn-content">
+                            <h3>WOW Effect Carnival</h3>
+                            <p>UI/UX Design</p>
+                        </div>
+                    </a>
+                    
+                    <a href="https://www.behance.net/gallery/202919451/Hero-Wow-Effect" target="_blank" class="portfolio-btn btn-9">
+                        <div class="btn-content">
+                            <h3>Flower shop </h3>
+                            <p>UI/UX Design</p>
+                        </div>
+                    </a>
+                </div>
+        </div>
+        
+
+    </div>
+
+                    </div>
+        </div>
+        
+        <!-- Footer Disclaimer -->
+        <div class="footer-disclaimer">
+            <div class="educational-notice">Images used for educational/course project purposes only</div>
+            <div class="copyright-footer">© 2025</div>
         </div>
     </div>
+
+    <!-- Modern JavaScript Effects -->
+    <script>
+        // 3D Tilt Effect
+        document.querySelectorAll('.portfolio-btn').forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 4;
+                const rotateY = (centerX - x) / 4;
+                
+                btn.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px) scale(1.05)`;
+            });
+            
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px) scale(1)';
+            });
+            
+            // Ripple Effect on Click
+            btn.addEventListener('click', (e) => {
+                const ripple = document.createElement('div');
+                ripple.classList.add('ripple');
+                btn.appendChild(ripple);
+                
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Magnetic Cursor Effect
+        const buttons = document.querySelectorAll('.portfolio-btn');
+        let currentButton = null;
+
+        document.addEventListener('mousemove', (e) => {
+            buttons.forEach(btn => {
+                const rect = btn.getBoundingClientRect();
+                const distance = Math.sqrt(
+                    Math.pow(e.clientX - (rect.left + rect.width / 2), 2) +
+                    Math.pow(e.clientY - (rect.top + rect.height / 2), 2)
+                );
+                
+                if (distance < 150) {
+                    const strength = Math.max(0, (150 - distance) / 150);
+                    const pullX = (e.clientX - (rect.left + rect.width / 2)) * strength * 0.3;
+                    const pullY = (e.clientY - (rect.top + rect.height / 2)) * strength * 0.3;
+                    
+                    btn.style.transform += ` translate(${pullX}px, ${pullY}px)`;
+                    currentButton = btn;
+                } else if (currentButton === btn) {
+                    currentButton = null;
+                }
+            });
+        });
+
+
+
+
+    </script>
 </body>
 </html>

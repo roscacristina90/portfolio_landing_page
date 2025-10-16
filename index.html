@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./vars.css">
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   
   
   <style>
@@ -72,10 +73,54 @@
       <div class="frame-384"></div>
       <div class="profile-image"></div>
     </div>
-    <!-- <div class="frame-3822">
-      <div class="contact-me">CONTACT ME</div>
-    </div> -->
+    <div class="frame-3822">
+      <div class="contact-me" onclick="openContactPopup()">CONTACT ME</div>
+    </div>
   </div>
+
+  <!-- Contact Popup -->
+  <div id="contactPopup" class="popup-overlay">
+    <div class="popup-content">
+      <div class="popup-header">
+        <h2>Get In Touch</h2>
+        <span class="close-popup" onclick="closeContactPopup()">&times;</span>
+      </div>
+      <div class="contact-info">
+        <div class="email-display">
+          <span class="contact-icon"><i class="fas fa-envelope"></i></span>
+          <span class="email-text">cristinaneculcea90@yahoo.com</span>
+        </div>
+      </div>
+      <div class="contact-buttons">
+        <a href="https://www.linkedin.com/in/cristina-neculcea-2b7b94312/" class="contact-btn linkedin-btn" target="_blank">
+          <span class="contact-icon"><i class="fab fa-linkedin-in"></i></span>
+          <span class="contact-text">LinkedIn</span>
+        </a>
+        <a href="https://www.behance.net/cristinaneculcea" class="contact-btn behance-btn" target="_blank">
+          <span class="contact-icon"><i class="fab fa-behance"></i></span>
+          <span class="contact-text">Behance</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openContactPopup() {
+      document.getElementById('contactPopup').style.display = 'flex';
+    }
+
+    function closeContactPopup() {
+      document.getElementById('contactPopup').style.display = 'none';
+    }
+
+    // Close popup when clicking outside of it
+    window.onclick = function(event) {
+      var popup = document.getElementById('contactPopup');
+      if (event.target == popup) {
+        closeContactPopup();
+      }
+    }
+  </script>
   
 </body>
 </html>
