@@ -35,11 +35,15 @@
        margin: 0;
        padding: 0;
    }
-   </style>
-  <title>Document</title>
+  </style>
+  <title>Portfolio</title>
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="./icons/favicon-alt.svg">
+  <link rel="alternate icon" type="image/svg+xml" href="./icons/favicon.svg">
+  <link rel="alternate icon" type="image/png" href="./icons/image.png">
 </head>
 <body>
-  <div class="portfolio-landing-page">
+  <div class="portfolio-landing-page site-container">
     <div class="frame-389">
       <div class="hey-i-m-cristina">
         <span>
@@ -47,7 +51,7 @@
           <span class="hey-i-m-cristina-span2">Cristina</span>
         </span>
       </div>
-      <div class="front-end-developer">Front-end developer</div>
+      <div class="front-end-developer">Front-end developer </div>
       <div
         class="i-m-starting-out-in-design-and-development-with-a-passion-for-learning-and-building-this-portfolio-is-a-glimpse-into-my-growth-and-the-projects-i-m-proud-of-so-far"
       >
@@ -74,7 +78,7 @@
       <div class="profile-image"></div>
     </div>
     <div class="frame-3822">
-      <div class="contact-me" onclick="openContactPopup()">CONTACT ME</div>
+      <button class="contact-me" type="button" aria-haspopup="dialog" aria-controls="contactPopup" onclick="openContactPopup()">CONTACT ME</button>
     </div>
   </div>
 
@@ -88,7 +92,7 @@
       <div class="contact-info">
         <div class="email-display">
           <span class="contact-icon"><i class="fas fa-envelope"></i></span>
-          <span class="email-text">cristinaneculcea90@yahoo.com</span>
+          <span class="email-text"><a href="mailto:cristinaneculcea90@yahoo.com?subject=Contact" target="_self" class="underline text-theme-3">Email</a></span>
         </div>
       </div>
       <div class="contact-buttons">
@@ -99,6 +103,10 @@
         <a href="https://www.behance.net/cristinaneculcea" class="contact-btn behance-btn" target="_blank">
           <span class="contact-icon"><i class="fab fa-behance"></i></span>
           <span class="contact-text">Behance</span>
+        </a>
+        <a href="mailto:cristinaneculcea90@yahoo.com?subject=Contact" class="contact-btn email-btn" target="_self">
+          <span class="contact-icon"><i class="fas fa-envelope"></i></span>
+          <span class="contact-text">Email</span>
         </a>
       </div>
     </div>
