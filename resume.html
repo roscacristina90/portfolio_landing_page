@@ -21,9 +21,7 @@
     <!-- Email copy popup -->
     <div id="email-popup" class="email-popup" role="dialog" aria-hidden="true">
       <div class="email-popup-inner">
-        <div class="email-address">
-          <a href="mailto:cristinaneculcea90@yahoo.com?subject=Contact" target="_self" class="underline text-theme-3" onclick="window.location.href='mailto:cristinaneculcea90@yahoo.com?subject=Contact'">cristinaneculcea90@yahoo.com</a>
-        </div>
+        <div class="email-address">cristinaneculcea90@yahoo.com</div>
         <button id="copy-email-btn" class="copy-btn">Copy</button>
         <div id="copy-feedback" class="copy-feedback" aria-live="polite"></div>
       </div>
@@ -218,7 +216,7 @@
           <a class="social-link" href="https://www.linkedin.com/in/cristina-neculcea-2b7b94312/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <i class="fab fa-linkedin-in social-icon" aria-hidden="true"></i>
           </a>
-          <a class="social-link" href="mailto:cristinaneculcea90@yahoo.com?subject=Contact" aria-label="Email cristinaneculcea90@yahoo.com">
+          <a class="social-link" href="mailto:cristinaneculcea90@yahoo.com?subject=Contact" aria-label="Email cristinaneculcea90@yahoo.com" onclick="openMailClient(event, 'cristinaneculcea90@yahoo.com', 'Contact')">
             <i class="fas fa-envelope social-icon" aria-hidden="true"></i>
           </a>
           <a class="social-link" href="https://github.com/roscacristina90" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
@@ -228,4 +226,20 @@
       </div>
     </div>
   </body>
+  <script>
+    // Robust mailto helper: tries location.href, then window.open, then copies email to clipboard
+    function openMailClient(e, to, subject) {
+      if (e && e.preventDefault) e.preventDefault();
+      const mailto = 'mailto:' + encodeURIComponent(to) + (subject ? '?subject=' + encodeURIComponent(subject) : '');
+      try { window.location.href = mailto; return; } catch (err) {}
+      try { const w = window.open(mailto, '_blank'); if (w) { w.focus(); return; } } catch (err) {}
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(to).then(function() {
+          alert('Mail client did not open — email address copied to clipboard: ' + to);
+        }).catch(function() { alert('Mail client did not open. Please copy this email: ' + to); });
+      } else {
+        alert('Mail client did not open. Please copy this email: ' + to);
+      }
+    }
+  </script>
 </html>
