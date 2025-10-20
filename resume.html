@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cristina Neculcea - Resume</title>
+    <title>Resume</title>
+    <link rel="icon" type="image/svg+xml" href="./icons/favicon-alt.svg">
+  <link rel="alternate icon" type="image/svg+xml" href="./icons/favicon.svg">
+  <link rel="alternate icon" type="image/png" href="./icons/image.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -15,22 +18,77 @@
         <span class="arrow">←</span> Back
       </button>
     </div>
+    <!-- Email copy popup -->
+    <div id="email-popup" class="email-popup" role="dialog" aria-hidden="true">
+      <div class="email-popup-inner">
+        <div class="email-address">cristinaneculcea90@yahoo.com</div>
+        <button id="copy-email-btn" class="copy-btn">Copy</button>
+        <div id="copy-feedback" class="copy-feedback" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        const popup = document.getElementById('email-popup');
+        const copyBtn = document.getElementById('copy-email-btn');
+        const feedback = document.getElementById('copy-feedback');
+
+        function showPopup(x, y, email) {
+          popup.style.left = x + 'px';
+          popup.style.top = (y + 28) + 'px';
+          popup.querySelector('.email-address').textContent = email;
+          popup.setAttribute('aria-hidden', 'false');
+          popup.classList.add('visible');
+        }
+
+        function hidePopup() {
+          popup.setAttribute('aria-hidden', 'true');
+          popup.classList.remove('visible');
+        }
+
+        document.addEventListener('click', function (e) {
+          const target = e.target.closest('.email-copy');
+          if (target) {
+            e.preventDefault();
+            const email = target.getAttribute('data-email') || 'cristinaneculcea90@yahoo.com';
+            const rect = target.getBoundingClientRect();
+            // show popup near the icon
+            showPopup(rect.left + window.scrollX, rect.top + window.scrollY, email);
+            return;
+          }
+
+          // click outside => hide
+          if (!e.target.closest('.email-popup')) {
+            hidePopup();
+          }
+        });
+
+        copyBtn.addEventListener('click', function () {
+          const email = popup.querySelector('.email-address').textContent;
+          navigator.clipboard.writeText(email).then(function () {
+            feedback.textContent = 'Copied!';
+            setTimeout(() => (feedback.textContent = ''), 1500);
+          }, function () {
+            feedback.textContent = 'Copy failed';
+            setTimeout(() => (feedback.textContent = ''), 1500);
+          });
+        });
+
+        // hide on ESC
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') hidePopup();
+        });
+      })();
+    </script>
     <div class="main-container">
       <div class="flex-row-ff">
         <div class="profile-icon"></div>
         <div class="frame">
           <div class="front-end-developer-passion">
-            <span class="hi">Hi, I’m </span
-            ><span class="cristina-neculcea">Cristina Neculcea</span
-            ><span class="hi-1"> — a focused and creative </span
-            ><span class="cristina-neculcea-2">Front-End Developer</span
-            ><span class="hi-3"> with a passion for</span
-            ><span class="cristina-neculcea-4"> UI/UX design</span
-            ><span class="hi-5"
-              >, clean code, and building intuitive, responsive digital
-              experiences. Further details about my experience and skills can be
-              found in this CV.</span
-            >
+            <h1 class="intro-heading"></h1>
+            <p class="intro-sub"> Hi, I’m Cristina Neculcea — a focused and creative Front‑End Developer based in Monmouthshire, United Kingdom, with a passion for UI/UX design, coding, and building intuitive, responsive digital experiences. 
+              <br> Further details about my experience and skills can be found in this CV.
+            </p>
           </div>
         </div>
       </div>
@@ -56,9 +114,9 @@
             <div class="ui-ux-figma-adobe-photoshop-canva-wordpress">
               <span class="ui-ux">UI/UX: <br /></span
               ><span class="figma-adobe-photoshop-canva-wordpress-wireframing-prototyping-visual-design-responsive-design-usability-testing"
-                >Figma, Canva, Wordpress, Wireframing,<br /></span
+                >Figma, Wordpress, Wireframing, Prototyping,<br /></span
               ><span class="figma-adobe-photoshop-canva-wordpress-wireframing-prototyping-visual-design-responsive-design-usability-testing"
-                >Prototyping, Visual Design, Responsive Design, Usability Testing.<br /></span
+                >Visual Design, Responsive Design, Usability Testing.<br /></span
               >
             </div>
             <div class="core-skills">
@@ -136,33 +194,34 @@
           evaluations to ensure compliance and growth.</span
         >
       </div>
-      <div class="box-8"><span class="text-32">Aditional info</span></div>
+      <div class="box-8"><span class="text-32">Additional info</span></div>
       <div class="group-8">
         <div class="group-9">
           <div class="wrapper-a">
             <div class="section-c">
-              <span class="text-34">Driving License: Category B</span>
+              <!-- Driving license moved to left-bottom -->
             </div>
             <div class="wrapper-b">
-              <span class="text-35">Eligible to work in the UK</span>
+              <span class="text-35">Eligible to work in the United Kingdom</span>
             </div>
           </div>
         </div>
-        <div class="box-9">
-          <a href="mailto:cristinaneculcea90@yahoo.com">
-            <span class="text-36">cristinaneculcea90@yahoo.com</span></a>
+        <div class="driving-license">
+          <span class="text-34">Driving License: Category B</span>
         </div>
-        <div class="box-a">
-      <a href="https://github.com/roscacristina90" target="_blank">
-        <span class="text-37">https://github.com/roscacristina90</span></a>
-        </div>
-        <div class="box-b">
-          <a href="https://www.behance.net/cristinaneculcea" target="_blank">
-            <span class="text-33">https://www.behance.net/cristinaneculcea</span></a>
-        </div>
-        <div class="box-c">
-        <a href="https://www.linkedin.com/in/cristina-neculcea-2b7b94312/" target="_blank">
-          <span class="text-38">www.linkedin.com/in/cristina-neculcea-2b7b94312</span></a>
+        <div class="social-icons-row">
+          <a class="social-link" href="https://www.behance.net/cristinaneculcea" target="_blank" rel="noopener noreferrer" aria-label="Behance">
+            <i class="fab fa-behance social-icon" aria-hidden="true"></i>
+          </a>
+          <a class="social-link" href="https://www.linkedin.com/in/cristina-neculcea-2b7b94312/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in social-icon" aria-hidden="true"></i>
+          </a>
+          <a class="social-link email-copy" href="mailto:cristinaneculcea90@yahoo.com" aria-label="Email" data-email="cristinaneculcea90@yahoo.com">
+            <i class="fas fa-envelope social-icon" aria-hidden="true"></i>
+          </a>
+          <a class="social-link" href="https://github.com/roscacristina90" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <i class="fab fa-github social-icon" aria-hidden="true"></i>
+          </a>
         </div>
       </div>
     </div>
