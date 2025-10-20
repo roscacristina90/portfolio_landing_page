@@ -3,17 +3,14 @@ html, body {
   padding: 0 !important;
   width: 100% !important;
   height: 100% !important;
-  background: linear-gradient(
-    270deg,
-    rgba(62, 33, 46, 1) 9.132740646600723%,
-    rgba(38, 19, 34, 1) 24.037262797355652%
-  ) !important;
+  overflow-x: hidden; /* prevent horizontal scrolling */
+  /* NOTE: hiding vertical overflow will clip content that exceeds viewport height */
+  overflow-y: hidden; /* prevent vertical scrolling */
 }
 
 body {
   background: linear-gradient(
     270deg,
-    rgba(62, 33, 46, 1) 9.132740646600723%,
     rgba(38, 19, 34, 1) 24.037262797355652%
   ) !important;
   min-height: 100vh !important;
@@ -23,16 +20,11 @@ body {
 .portfolio-landing-page * {
   box-sizing: border-box;
 }
-.portfolio-landing-page {
-  background: linear-gradient(
-    270deg,
-    rgba(62, 33, 46, 1) 9.132740646600723%,
-    rgba(38, 19, 34, 1) 24.037262797355652%
-  ) !important;
-  height: 100vh;
-  min-height: 100vh;
-  position: relative;
-  overflow: hidden;
+/* Centering wrapper to add horizontal margins and align with other pages */
+.site-container {
+  width: 100%;
+  max-width: auto; /* content width matching portfolio buttons */
+  margin-right: 200px; /* center horizontally */
 }
 .frame-389 {
   display: flex;
@@ -42,7 +34,7 @@ body {
   justify-content: flex-start;
   width: 40.0625rem;
   position: absolute;
-  left: 5rem;
+  left: 180px;
   top: 15.75rem;
 }
 .hey-i-m-cristina {
@@ -103,6 +95,7 @@ body {
   width: 11.3125rem;
   height: 2.74rem;
   position: relative;
+  cursor: pointer;
 }
 .m-y-portfolio {
   color: #ffffff;
@@ -118,6 +111,7 @@ body {
   top: 0.58875rem;
   border-radius: 5rem;
   border-width: 0.05875rem;
+  cursor:pointer
 }
 
 .frame-381:hover {
@@ -145,6 +139,7 @@ body {
   width: 11.3125rem;
   height: 2.74rem;
   position: relative;
+  cursor:pointer;
 }
 .resume {
   color: #ffffff;
@@ -158,6 +153,7 @@ body {
   position: relative;
   border-radius: 5rem;
   border-width: 0.05875rem;
+  cursor: pointer;
 }
 
 .frame-382:hover {
@@ -179,34 +175,40 @@ body {
   width: 7.25rem;
   height: 2.25rem;
   position: absolute;
-  left: 5rem;
-  top: 1.75rem;
+  left: 180px;
+  top:1.25rem;
 }
 .profile-logo {
   display: flex;
   flex-direction: row;
   gap: 0rem;
-  align-items: flex-start;
+  align-items: left;
   justify-content: flex-start;
   align-self: stretch;
   flex-shrink: 0;
   height: 1.6875rem;
   position: relative;
 }
+
+.profile-logo img {
+  height: 48px; /* visually match heading height */
+  width: auto;
+  display: block;
+}
 .frame-388 {
   width: 47.6875rem;
   height: 61.139375rem;
   position: absolute;
-  right: 5rem;
+  right: -200px;
   top: -8.13rem;
 }
 .frame-384 {
   background: #432d42;
   border-radius: 9.375rem;
   width: 40rem;
-  height: 61.129375rem;
+  height: 65.129375rem;
   position: absolute;
-  right: 0rem;
+  right: 360px;
   top: 0.01rem;
   transform-origin: 0 0;
   transform: rotate(-0.018deg) scale(1, 1);
@@ -215,7 +217,7 @@ body {
 }
 .profile-image {
   width: 40rem;
-  height: 48.1875rem;
+  height: 60.1875rem;
   background-image: url('image.png');
   background-size: cover;
   background-position: center;
@@ -225,8 +227,8 @@ body {
   border-top-left-radius: 0 !important;
   border-top-right-radius: 0 !important;
   position: absolute;
-  bottom: 0;
-  right: 0rem;
+  bottom: -80px;
+  right: 360px;
   z-index: 10;
   overflow: hidden;
 }
@@ -243,8 +245,10 @@ body {
   width: 11.3125rem;
   height: 2.74rem;
   position: absolute;
-  right: 5rem;
+  right: 160px;
   top: 1.25rem;
+  z-index: 1100;
+  cursor:pointer;
 }
 .contact-me {
   color: #ffffff;
@@ -256,8 +260,9 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   position: relative;
-   border-radius: 5rem;
+  border-radius: 5rem;
   border-width: 0.05875rem;
+  cursor: pointer;
 }
 
 .frame-3822:hover {
@@ -296,7 +301,7 @@ body {
 /* Medium Desktop/Tablet (992px and below) */
 @media (max-width: 992px) {
   .portfolio-landing-page {
-    overflow-x: auto;
+    overflow-x: hidden; /* prevent horizontal scrolling */
   }
   
   .frame-389 {
@@ -372,7 +377,8 @@ body {
   
   .frame-383 {
     left: 1rem;
-    top: 1rem;
+    /* align with .frame-389 at this breakpoint */
+    top: 5rem;
   }
   
   .frame-388 {
@@ -451,7 +457,8 @@ body {
   
   .frame-383 {
     left: 0.5rem;
-    top: 0.5rem;
+    /* align with .frame-389 on small screens */
+    top: 2rem;
     width: 6rem;
   }
   
@@ -506,17 +513,22 @@ body {
 
 /* Contact Popup Styles */
 .popup-overlay {
+  /* hidden by default; JS toggles to 'flex' to show */
   display: none;
   position: fixed;
-  z-index: 1000;
+  z-index: 2000; /* higher than most page elements to fully overlay */
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  height: 100vh;
+  min-height: 100vh;
   backdrop-filter: blur(10px);
-  justify-content: center;
+  overflow: hidden; /* clip overflowing content */
+  overflow-x: hidden; /* ensure no horizontal scroll from child elements */
+  overflow-y: hidden; /* prevent vertical scroll inside this page */
+  /* center popup content when displayed */
   align-items: center;
+  justify-content: center;
 }
 
 .popup-content {
@@ -580,33 +592,8 @@ body {
   margin-bottom: 0;
 }
 
-.email-display {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 15px 20px;
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  backdrop-filter: blur(10px);
-  justify-content: flex-start;
-  margin-bottom: 15px;
-}
-
-.email-display .contact-icon {
-  font-size: 20px;
-  color: #ffffff;
-  width: 20px;
-  text-align: center;
-}
-
-.email-text {
-  font-family: "Poppins-Bold", sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-}
+/* Removed .email-display and .email-text styles as the plain email display
+   was removed from the Contact popup; the styled .contact-btn is used instead. */
 
 .contact-buttons {
   display: flex;

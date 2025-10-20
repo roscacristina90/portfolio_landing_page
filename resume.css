@@ -1311,25 +1311,7 @@ button {
   cursor: pointer;
 }
 
-.email-text {
-  display: inline-block;
-  color: #efe8ee;
-  font-family: Roboto, var(--default-font-family);
-  font-size: 14px;
-  white-space: nowrap;
-}
-
-/* Ensure pointer shows when hovering anywhere inside the button/anchor, including child elements */
-.social-link,
-.social-link *,
-.email-copy,
-.email-copy *,
-.copy-btn,
-.copy-btn *,
-.back-button,
-.back-button * {
-  cursor: pointer;
-}
+/* .email-text removed: plain email display replaced by styled contact button */
 
 .social-link:hover .social-icon,
 .social-link:focus .social-icon {
