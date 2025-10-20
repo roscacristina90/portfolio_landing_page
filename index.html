@@ -100,12 +100,18 @@
           <span class="contact-icon"><i class="fab fa-behance"></i></span>
           <span class="contact-text">Behance</span>
         </a>
-  <a href="mailto:cristinaneculcea90@yahoo.com?subject=Contact" class="contact-btn email-btn" target="_self" aria-label="Email cristinaneculcea90@yahoo.com" onclick="openMailClient(event, 'cristinaneculcea90@yahoo.com', 'Contact')">
+        <a href="mailto:cristinaneculcea90@yahoo.com?subject=Contact" class="contact-btn email-btn" target="_self" aria-label="Email cristinaneculcea90@yahoo.com" onmousedown="this.href='mailto:cristinaneculcea90@yahoo.com?subject=Contact'" onclick="openMailClient(event, 'cristinaneculcea90@yahoo.com', 'Contact')">
           <span class="contact-icon"><i class="fas fa-envelope"></i></span>
           <span class="contact-text">Email</span>
         </a>
+        <button class="contact-btn email-copy-btn" type="button" onclick="copyEmail('cristinaneculcea90@yahoo.com')" aria-label="Copy email">Copy</button>
       </div>
     </div>
+  </div>
+
+  <!-- debug / test link -->
+  <div style="position:fixed;right:12px;bottom:12px;z-index:2500;font-family:Roboto,Arial,sans-serif;">
+    <a href="mailto:cristinaneculcea90@yahoo.com?subject=Contact">Test mail link</a>
   </div>
 
   <script>
@@ -127,6 +133,7 @@
 
     // Robust mailto helper: tries location.href, then window.open, then copies email to clipboard
     function openMailClient(e, to, subject) {
+      console.log('openMailClient called', { to: to, subject: subject });
       if (e && e.preventDefault) e.preventDefault();
       const mailto = 'mailto:' + encodeURIComponent(to) + (subject ? '?subject=' + encodeURIComponent(subject) : '');
       // Try location.href
@@ -143,18 +150,50 @@
       } catch (err) {
         // continue
       }
-      // Fallback: copy to clipboard
+      // Fallback: copy to clipboard and show toast
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(to).then(function() {
-          alert('Mail client did not open — email address copied to clipboard: ' + to);
+          showMailToast('Mail client did not open — email copied to clipboard');
         }).catch(function() {
-          alert('Mail client did not open. Please copy this email: ' + to);
+          showMailToast('Mail client did not open — please copy this email: ' + to);
         });
       } else {
-        alert('Mail client did not open. Please copy this email: ' + to);
+        showMailToast('Mail client did not open — please copy this email: ' + to);
+      }
+    }
+
+    function showMailToast(message) {
+      console.log('showMailToast:', message);
+      var t = document.getElementById('mail-toast');
+      if (!t) return alert(message); // fallback if toast missing
+      t.textContent = message;
+      t.classList.add('visible');
+      t.style.display = 'block';
+      clearTimeout(t._hideTimeout);
+      t._hideTimeout = setTimeout(function() {
+        t.classList.remove('visible');
+        t.style.display = 'none';
+      }, 4000);
+    }
+
+    function copyEmail(to) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(to).then(function() {
+          showMailToast('Email copied to clipboard');
+        }).catch(function() {
+          showMailToast('Could not copy email. Please copy manually: ' + to);
+        });
+      } else {
+        showMailToast('Could not copy email. Please copy manually: ' + to);
       }
     }
   </script>
+  <style>
+    /* simple toast for mail fallback */
+    #mail-toast { display:none; position:fixed; left:50%; bottom:24px; transform:translateX(-50%); background:#2a1b24; color:#fff; padding:10px 14px; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.4); z-index:2200; font-family:Roboto, Arial, sans-serif; }
+    #mail-toast.visible { opacity:1; transition:opacity 0.2s ease; }
+  </style>
+  <div id="mail-toast" role="status" aria-live="polite"></div>
   
 </body>
 </html>
