@@ -34,27 +34,11 @@
          padding: 0;
      }
      </style>
-    <title>My Portfolio</title>
+    <title>Portfolio Showcase</title>
+        <link rel="icon" type="image/svg+xml" href="./icons/favicon-alt.svg">
+        <link rel="alternate icon" type="image/png" href="./icons/image.png">
 </head>
 <body>
-    <!-- Particle System -->
-    <div class="particles-container">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
     <div class="portfolio-page">
         <!-- Header -->
         <div class="header">
@@ -65,7 +49,7 @@
             <div class="project-title-section">
                 <h2 class="project-title">MY PROJECTS</h2>
                 <div class="title-underline"></div>
-                <p class="project-subtitle">Interactive Portfolio Collection</p>
+                <p class="project-subtitle">Portfolio Collection</p>
             </div>
             <div class="header-spacer"></div>
         </div>
@@ -91,7 +75,7 @@
                         </div>
                     </a>
                     
-                    <a href="https://roscacristina90.github.io/E-PLANT/" target="_blank" class="portfolio-btn btn-3">
+                    <a href="https://roscacristina90.github.io/eplant/" target="_blank" class="portfolio-btn btn-3">
                         <div class="btn-content">
                             <h3>E-Plant</h3>
                             <p>E-commerce Store</p>
@@ -149,80 +133,9 @@
         
         <!-- Footer Disclaimer -->
         <div class="footer-disclaimer">
-            <div class="educational-notice">Images used for educational/course project purposes only</div>
-            <div class="copyright-footer">© 2025</div>
+            <div class="educational-notice">© 2025 Images used for educational/course project purposes only.</div>
         </div>
     </div>
-
-    <!-- Modern JavaScript Effects -->
-    <script>
-        // 3D Tilt Effect
-        document.querySelectorAll('.portfolio-btn').forEach(btn => {
-            btn.addEventListener('mousemove', (e) => {
-                const rect = btn.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const rotateX = (y - centerY) / 4;
-                const rotateY = (centerX - x) / 4;
-                
-                btn.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px) scale(1.05)`;
-            });
-            
-            btn.addEventListener('mouseleave', () => {
-                btn.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px) scale(1)';
-            });
-            
-            // Ripple Effect on Click
-            btn.addEventListener('click', (e) => {
-                const ripple = document.createElement('div');
-                ripple.classList.add('ripple');
-                btn.appendChild(ripple);
-                
-                const rect = btn.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                ripple.style.left = x + 'px';
-                ripple.style.top = y + 'px';
-                
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
-            });
-        });
-
-        // Magnetic Cursor Effect
-        const buttons = document.querySelectorAll('.portfolio-btn');
-        let currentButton = null;
-
-        document.addEventListener('mousemove', (e) => {
-            buttons.forEach(btn => {
-                const rect = btn.getBoundingClientRect();
-                const distance = Math.sqrt(
-                    Math.pow(e.clientX - (rect.left + rect.width / 2), 2) +
-                    Math.pow(e.clientY - (rect.top + rect.height / 2), 2)
-                );
-                
-                if (distance < 150) {
-                    const strength = Math.max(0, (150 - distance) / 150);
-                    const pullX = (e.clientX - (rect.left + rect.width / 2)) * strength * 0.3;
-                    const pullY = (e.clientY - (rect.top + rect.height / 2)) * strength * 0.3;
-                    
-                    btn.style.transform += ` translate(${pullX}px, ${pullY}px)`;
-                    currentButton = btn;
-                } else if (currentButton === btn) {
-                    currentButton = null;
-                }
-            });
-        });
-
-
-
-
     </script>
 </body>
 </html>
