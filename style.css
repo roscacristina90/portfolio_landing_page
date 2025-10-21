@@ -526,6 +526,27 @@ body.popup-open .frame-382 {
   }
 }
 
+/* Additional mobile refinements */
+@media (max-width: 768px) {
+  /* allow vertical scroll on small devices */
+  html, body { overflow-y: auto; }
+  .site-container { padding: 0 1rem; margin-right: 0; }
+  /* hide large decorative elements to free space */
+  .frame-384, .profile-image, .frame-388 { display: none !important; }
+  .frame-389 { left: 1rem; right: 1rem; width: auto; max-width: 100%; top: 4rem; }
+  .frame-385 { gap: 1rem; flex-direction: column; align-items: flex-start; }
+  .frame-381, .frame-382, .frame-3822 { position: relative; width: 100%; max-width: none; margin: .5rem 0; }
+  .profile-logo { left: 0; }
+  .frame-3822 { right: auto; top: 1rem; }
+}
+
+@media (max-width: 480px) {
+  .front-end-developer { font-size: 1.8rem; }
+  .hey-i-m-cristina { font-size: 1.2rem; }
+  .frame-381, .frame-382, .frame-3822 { padding: .5rem 1rem; height: 2.5rem; }
+  .contact-me { font-size: .9rem; }
+}
+
 /* Contact Popup Styles */
 .popup-overlay {
   /* hidden by default; JS toggles to 'flex' to show */
@@ -665,4 +686,32 @@ body.popup-open .frame-382 {
   .contact-text {
     font-size: 16px;
   }
+}
+
+/* Extra small / utility mobile tweaks appended */
+@media (max-width: 768px) {
+  /* Stack header controls and increase hit area for touch */
+  .header-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+  .frame-381, .frame-382, .frame-3822 {
+    width: 100%;
+    max-width: 320px;
+    margin: 0.35rem auto;
+  }
+  /* Hide large decorative elements to reduce clutter on small screens */
+  .frame-384, .profile-image, .frame-388 { display: none !important; }
+  html, body { overflow-y: auto; }
+  body { font-size: 15px; }
+}
+
+@media (max-width: 480px) {
+  .header-buttons { gap: 8px; }
+  .frame-381, .frame-382, .frame-3822 { max-width: 260px; }
+  .main-title { font-size: 28px; }
+  .subtitle { font-size: 14px; }
+  .resume-columns { flex-direction: column; gap: 12px; }
 }
