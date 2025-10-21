@@ -34,7 +34,19 @@
          padding: 0;
      }
      </style>
-    <title>My Portfolio</title>
+        <title>My Portfolio</title>
+        <!-- Favicons and script to adjust paths on GitHub Pages -->
+        <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+        <link rel="alternate icon" type="image/svg+xml" href="icons/favicon-alt.svg">
+        <link rel="icon" type="image/png" href="icons/image.png">
+        <link rel="shortcut icon" href="icons/image.png">
+        <script>
+            (function(){
+                var repoBase=''; try{ var m = location.pathname.match(/^\/[^\/]+\/[^\/]+/); if(m) repoBase = m[0]; }catch(e){}
+                var map = { svg: repoBase + '/icons/favicon.svg', alt: repoBase + '/icons/favicon-alt.svg', png: repoBase + '/icons/image.png' };
+                function up(rel, type, href){ var sel='link[rel="'+rel+'"]', el=document.head.querySelector(sel); if(el){ el.href=href; if(type) el.type=type; return; } el=document.createElement('link'); el.rel=rel; if(type) el.type=type; el.href=href; document.head.appendChild(el);} up('icon','image/svg+xml',map.svg); up('alternate icon','image/svg+xml',map.alt); up('icon','image/png',map.png); up('shortcut icon',null,map.png);
+            })();
+        </script>
 </head>
 <body>
     <div class="portfolio-page">
@@ -72,7 +84,7 @@
                                 <p>Business Services</p>
                             </div>
                         </a>
-                        <a href="https://roscacristina90.github.io/E-PLANT/" target="_blank" class="portfolio-btn btn-3">
+                        <a href="https://roscacristina90.github.io/eplant/" target="_blank" class="portfolio-btn btn-3">
                             <div class="btn-content">
                                 <h3>E-Plant</h3>
                                 <p>E-commerce Store</p>

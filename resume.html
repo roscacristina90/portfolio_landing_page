@@ -4,9 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Resume</title>
-    <link rel="icon" type="image/svg+xml" href="./icons/favicon-alt.svg">
-  <link rel="alternate icon" type="image/svg+xml" href="./icons/favicon.svg">
-  <link rel="alternate icon" type="image/png" href="./icons/image.png">
+    <!-- Favicons: use relative links; script below will adjust to GitHub Pages base path -->
+    <link rel="icon" type="image/svg+xml" href="icons/favicon-alt.svg">
+  <link rel="alternate icon" type="image/svg+xml" href="icons/favicon.svg">
+  <link rel="alternate icon" type="image/png" href="icons/image.png">
+  <script>
+    (function(){
+      var repoBase = '';
+      try{ var m = location.pathname.match(/^\/[^\/]+\/[^\/]+/); if(m) repoBase = m[0]; }catch(e){ repoBase = ''; }
+      var map = { svg: repoBase + '/icons/favicon.svg', alt: repoBase + '/icons/favicon-alt.svg', png: repoBase + '/icons/image.png' };
+      function upsert(rel, type, href){ var sel = 'link[rel="' + rel + '"]'; var el = document.head.querySelector(sel); if(el){ el.href = href; if(type) el.type = type; return; } el = document.createElement('link'); el.rel = rel; if(type) el.type = type; el.href = href; document.head.appendChild(el); }
+      upsert('icon','image/svg+xml', map.svg); upsert('alternate icon','image/svg+xml', map.alt); upsert('icon','image/png', map.png); upsert('shortcut icon', null, map.png);
+    })();
+  </script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -52,12 +62,11 @@
             e.preventDefault();
             const email = target.getAttribute('data-email') || 'cristinaneculcea90@yahoo.com';
             const rect = target.getBoundingClientRect();
-            // show popup near the icon
             showPopup(rect.left + window.scrollX, rect.top + window.scrollY, email);
             return;
           }
 
-          // click outside => hide
+        
           if (!e.target.closest('.email-popup')) {
             hidePopup();
           }
