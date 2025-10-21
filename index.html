@@ -46,12 +46,15 @@
 
   <script>
     (function(){
-      // Determine possible repo base (e.g. /username/repo) for GitHub Pages
       var repoBase = '';
-      try{
-        var m = location.pathname.match(/^\/[^\/]+\/[^\/]+/);
-        if(m) repoBase = m[0];
-      }catch(e){ repoBase = ''; }
+      try {
+        if (location.hostname && location.hostname.indexOf('github.io') !== -1) {
+          var parts = location.pathname.split('/'); // ['', 'repo', 'page.html']
+          if (parts.length > 1 && parts[1]) {
+            repoBase = '/' + parts[1];
+          }
+        }
+      } catch (e) { repoBase = ''; }
 
       var map = {
         svg: repoBase + '/icons/favicon.svg',

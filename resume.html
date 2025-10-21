@@ -10,8 +10,17 @@
   <link rel="alternate icon" type="image/png" href="icons/image.png">
   <script>
     (function(){
+      // Compute a repo base for GitHub Pages without including the filename.
       var repoBase = '';
-      try{ var m = location.pathname.match(/^\/[^\/]+\/[^\/]+/); if(m) repoBase = m[0]; }catch(e){ repoBase = ''; }
+      try {
+        if (location.hostname && location.hostname.indexOf('github.io') !== -1) {
+          var parts = location.pathname.split('/'); // ['', 'repo', 'page.html']
+          if (parts.length > 1 && parts[1]) {
+            repoBase = '/' + parts[1];
+          }
+        }
+      } catch (e) { repoBase = ''; }
+
       var map = { svg: repoBase + '/icons/favicon.svg', alt: repoBase + '/icons/favicon-alt.svg', png: repoBase + '/icons/image.png' };
       function upsert(rel, type, href){ var sel = 'link[rel="' + rel + '"]'; var el = document.head.querySelector(sel); if(el){ el.href = href; if(type) el.type = type; return; } el = document.createElement('link'); el.rel = rel; if(type) el.type = type; el.href = href; document.head.appendChild(el); }
       upsert('icon','image/svg+xml', map.svg); upsert('alternate icon','image/svg+xml', map.alt); upsert('icon','image/png', map.png); upsert('shortcut icon', null, map.png);
