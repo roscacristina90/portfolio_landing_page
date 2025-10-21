@@ -5,7 +5,17 @@
     "Source Han Sans CN", sans-serif;
 }
 
-/* Reset default margins and padding */
+html, body {
+  font-family: 'Roboto', var(--default-font-family);
+  color: #efe8ee;
+  background: #1E0F1B; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', var(--default-font-family);
+  color: #ffe8fa; 
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -38,7 +48,6 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-    /* content sits visually lifted via parent transform; keep child static */
   width: 100vw;
   height: auto;
   margin: 0;
@@ -70,11 +79,10 @@ button {
   align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
-  gap: 10px;
+  gap: 40px;
   position: absolute;
   width: 1023px;
   height: 148px;
-  /* use transform for a small visual lift */
   top: 0;
   transform: translateY(-8px);
   left: 209px;
@@ -87,7 +95,6 @@ button {
   flex-shrink: 0;
   position: relative;
   width: 815px;
-  /* allow variable height for wrapped heading + paragraph */
   height: auto;
   font-family: Roboto, var(--default-font-family);
   font-size: 20px;
@@ -96,14 +103,11 @@ button {
   text-align: center;
   letter-spacing: 0.4px;
   z-index: 61;
-  /* child stays static; parent provides visual lift via transform */
 }
-/* Semantic heading style for intro */
 .intro-heading {
   margin: 0;
   color: #efe8ed;
   font-family: Roboto, var(--default-font-family);
-  /* responsive scaling: min 18px, preferred based on viewport, max 28px */
   font-size: clamp(18px, 1.6vw + 12px, 28px);
   font-weight: 400;
   line-height: 1.35;
@@ -111,7 +115,7 @@ button {
   letter-spacing: 0.4px;
   width: 100%;
   display: block;
-  max-width: 820px; /* keep readable line length */
+  max-width: 820px; 
   margin-left: auto;
   margin-right: auto;
 }
@@ -342,7 +346,7 @@ button {
   align-self: stretch;
   flex-wrap: nowrap;
   flex-shrink: 0;
-  gap: 48px; /* increased gap between language frames */
+  gap: 30px; /* increased gap between language frames */
   position: relative;
   min-width: 0;
   height: 44px;
@@ -496,12 +500,12 @@ button {
   align-self: stretch;
   flex-wrap: nowrap;
   flex-shrink: 0;
-  gap: 30px;
+  gap: 15px;
   position: relative;
   min-width: 0;
-  height: 220px;
+  height: auto; 
   z-index: 13;
-  top: -2px;
+  top: 0;
 }
 .languages-technologies {
   align-self: stretch;
@@ -852,11 +856,11 @@ button {
   flex-direction: column;
   align-items: flex-start;
   flex-wrap: nowrap;
-  gap: 24px;
+  gap: 13px;
   position: absolute;
   width: 302px;
   height: 312px;
-  top: 5px;
+  top: 0px;
   left: 0;
   z-index: 29;
 }
@@ -905,13 +909,27 @@ button {
   flex-direction: column;
   align-items: flex-start;
   flex-wrap: nowrap;
-  gap: 16px;
+  gap: 20px;
   position: absolute;
   width: 339px;
   height: 312px;
-  top: 5px;
+  top: 0px;
   left: 447px;
   z-index: 33;
+}
+/* Right-most column for Sales Consultant */
+.frame-31 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  gap: 20px;
+  position: absolute;
+  width: 310px;
+  height: 312px;
+  top: 0px;
+  left: 926px;
+  z-index: 36;
 }
 .area-manager-role {
   display: flex;
@@ -949,15 +967,19 @@ button {
   letter-spacing: 0.32px;
   z-index: 35;
 }
+
+.supervisor-role-description { display: block; margin-top: 6px; }
+.supervisor-role-description .bullets-compact { margin-top: 6px; }
+
+.bullets-compact { padding-left: 1rem; margin: 0; color: #efe8ee; }
+.bullets-compact li { margin-bottom: .35rem; font-size: 0.95rem; }
+.bullets-compact li::marker { color: #ffffff; font-size: 1rem; }
+
+.supervisor-role { display: block; margin-bottom: 2px; }
+.supervisor-role .role-title { font-family: 'Poppins', var(--default-font-family); font-weight: 600; color: #ffe8fa; margin-bottom: 4px; }
+.supervisor-role .role-dates { color: #efe8ee; font-size: 0.9rem; margin-bottom: 4px; }
 .sales-consultant-role {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  position: absolute;
-  width: 310px;
-  height: 79px;
-  top: 5px;
-  left: 926px;
+  display: block;
   color: #efe8ee;
   font-family: Roboto, var(--default-font-family);
   font-size: 16px;
@@ -968,14 +990,7 @@ button {
   z-index: 37;
 }
 .text-31 {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  position: absolute;
-  width: 310px;
-  height: 216px;
-  top: 100px;
-  left: 926px;
+  display: block;
   color: #efe8ee;
   font-family: Roboto, var(--default-font-family);
   font-size: 16px;
@@ -1070,7 +1085,6 @@ button {
   width: 192px;
   height: 46px;
   z-index: 41;
-  /* keep wrapper-a in the same position but center its children */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1079,9 +1093,9 @@ button {
 .section-c {
   display: flex;
   flex-direction: column;
-  align-items: center; /* center contents inside wrapper-a */
+  align-items: center; 
   flex-wrap: nowrap;
-  gap: 8px; /* reduced vertical gap for tighter alignment */
+  gap: 8px;
   position: relative;
   width: 192px;
   margin: 0;
@@ -1120,7 +1134,6 @@ button {
   padding: 0 0 0px 0;
   z-index: 44;
   top: 5px;
-  /* replaced negative margin-left with explicit centering + nudge */
   left: 50%;
   transform: translateX(calc(-50% - 90px));
 }
@@ -1135,7 +1148,7 @@ button {
   font-size: 16px;
   font-weight: 400;
   line-height: 14px;
-  text-align: center; /* keep centered position */
+  text-align: center;
   white-space: nowrap;
   letter-spacing: -0.16px;
   z-index: 45;
@@ -1254,19 +1267,16 @@ button {
   line-height: 18.4px;
 }
 
-
-/* On hover only: show gradient fill on icons and a small lift */
-/* Simplified hover for social icons: no gradient fill, just a color change and a small lift */
 .social-link:hover .social-icon,
 .social-link:focus .social-icon {
-  color: #e1cf5d; /* subtle gold highlight */
+  color: #e1cf5d; 
   transform: translateY(-2px);
 }
 
 
 .social-icon {
   color: #efe8ee;
-  font-size: 22px; /* slightly bigger */
+  font-size: 22px;
   margin-right: 15px;
   width: 28px;
   height: 28px;
@@ -1279,7 +1289,6 @@ button {
 
 .social-icons-row {
   position: absolute;
-  /* align horizontally with the Sales Consultant column */
   left: 926px;
   right: auto;
   top: 25px;
@@ -1295,20 +1304,18 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px; /* larger clickable area */
+  width: 44px; 
   height: 44px;
   transition: transform 0.15s ease, color 0.15s ease;
-  cursor: pointer; /* ensure pointer over full button area */
+  cursor: pointer; 
 }
 
-.email-link { /* allow the email link to expand to show the address */
+.email-link { 
   width: auto;
   padding: 6px 10px;
   gap: 8px;
   cursor: pointer;
 }
-
-/* .email-text removed: plain email display replaced by styled contact button */
 
 .social-link:hover .social-icon,
 .social-link:focus .social-icon {
@@ -1336,7 +1343,7 @@ button {
   background: rgb(124, 59, 148) 25.48%;
   border: none;
   padding: 6px 12px;
-  border-radius: 999px; /* pill */
+  border-radius: 999px;
   cursor: pointer;
   font-weight: 700;
   color: white;
@@ -1347,8 +1354,6 @@ button {
   box-shadow: 0 6px 12px rgba(0,0,0,0.25);
 }
 .copy-feedback { color: #e1cf5d; font-size: 12px; margin-left: 6px; }
-
-/* Responsive: remove the horizontal nudge on small screens so items don't overflow */
 @media (max-width: 900px) {
   .wrapper-b {
     left: 50%;

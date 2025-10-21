@@ -3,9 +3,8 @@ html, body {
   padding: 0 !important;
   width: 100% !important;
   height: 100% !important;
-  overflow-x: hidden; /* prevent horizontal scrolling */
-  /* NOTE: hiding vertical overflow will clip content that exceeds viewport height */
-  overflow-y: hidden; /* prevent vertical scrolling */
+  overflow-x: hidden; 
+  overflow-y: hidden;
 }
 
 body {
@@ -96,6 +95,7 @@ body {
   height: 2.74rem;
   position: relative;
   cursor: pointer;
+  z-index: 3001;
 }
 .m-y-portfolio {
   color: #ffffff;
@@ -140,6 +140,7 @@ body {
   height: 2.74rem;
   position: relative;
   cursor:pointer;
+  z-index: 3001; /* ensure resume link is above decorations */
 }
 .resume {
   color: #ffffff;
@@ -191,7 +192,7 @@ body {
 }
 
 .profile-logo img {
-  height: 48px; /* visually match heading height */
+  height: 48px; 
   width: auto;
   display: block;
 }
@@ -214,6 +215,8 @@ body {
   transform: rotate(-0.018deg) scale(1, 1);
   overflow: hidden;
   mix-blend-mode: soft-light;
+  /* decorative only: don't block pointer events so header buttons remain clickable */
+  pointer-events: none;
 }
 .profile-image {
   width: 40rem;
@@ -231,6 +234,8 @@ body {
   right: 360px;
   z-index: 10;
   overflow: hidden;
+  /* decorative image should not block header clicks */
+  pointer-events: none;
 }
 .frame-3822 {
   border-radius: 5rem;
@@ -246,8 +251,8 @@ body {
   height: 2.74rem;
   position: absolute;
   right: 160px;
-  top: 1.25rem;
-  z-index: 1100;
+  top: 2rem; /* moved down slightly */
+  z-index: 3001;
   cursor:pointer;
 }
 .contact-me {
@@ -264,6 +269,8 @@ body {
   border-width: 0.05875rem;
   cursor: pointer;
 }
+/* Keep containers interactive but avoid changing anchor/button layout here. */
+.frame-381, .frame-382, .frame-3822 { pointer-events: auto; }
 
 .frame-3822:hover {
   background: linear-gradient(
@@ -274,6 +281,16 @@ body {
   ) !important;
   transform: scale(1.05);
   transition: all 0.3s ease;
+}
+
+/* When the contact popup is open, hide the header portfolio/resume buttons so they
+   don't appear above the overlay. The contact button remains available in the
+   popup if needed. */
+body.popup-open .frame-381,
+body.popup-open .frame-382 {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* RESPONSIVE DESIGN - MEDIA QUERIES */
@@ -295,13 +312,14 @@ body {
   
   .frame-3822 {
     right: 2rem;
+    top: 2.5rem; /* keep moved down at this breakpoint */
   }
 }
 
 /* Medium Desktop/Tablet (992px and below) */
 @media (max-width: 992px) {
   .portfolio-landing-page {
-    overflow-x: hidden; /* prevent horizontal scrolling */
+    overflow-x: hidden;
   }
   
   .frame-389 {
@@ -377,7 +395,6 @@ body {
   
   .frame-383 {
     left: 1rem;
-    /* align with .frame-389 at this breakpoint */
     top: 5rem;
   }
   
@@ -412,7 +429,7 @@ body {
   .frame-3822 {
     position: relative;
     right: auto;
-    top: 1rem;
+    top: 1.5rem; /* slightly lower on tablet layout */
     margin: 0 auto;
   }
 }
@@ -457,7 +474,6 @@ body {
   
   .frame-383 {
     left: 0.5rem;
-    /* align with .frame-389 on small screens */
     top: 2rem;
     width: 6rem;
   }
@@ -488,7 +504,6 @@ body {
   }
 }
 
-/* Extra Small Mobile (480px and below) */
 @media (max-width: 480px) {
   .hey-i-m-cristina {
     font-size: 1.3rem;
@@ -592,9 +607,6 @@ body {
   margin-bottom: 0;
 }
 
-/* Removed .email-display and .email-text styles as the plain email display
-   was removed from the Contact popup; the styled .contact-btn is used instead. */
-
 .contact-buttons {
   display: flex;
   flex-direction: column;
@@ -640,7 +652,6 @@ body {
   letter-spacing: -0.01em;
 }
 
-/* Responsive popup */
 @media (max-width: 768px) {
   .popup-content {
     padding: 30px 20px;
