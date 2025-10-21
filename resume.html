@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Resume</title>
     <link rel="icon" type="image/svg+xml" href="./icons/favicon-alt.svg">
+  <link rel="alternate icon" type="image/svg+xml" href="./icons/favicon.svg">
   <link rel="alternate icon" type="image/png" href="./icons/image.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" />
@@ -198,7 +199,6 @@
         <div class="group-9">
           <div class="wrapper-a">
             <div class="section-c">
-              <!-- Driving license moved to left-bottom -->
             </div>
             <div class="wrapper-b">
               <span class="text-35">Eligible to work in the United Kingdom</span>
@@ -215,10 +215,9 @@
           <a class="social-link" href="https://www.linkedin.com/in/cristina-neculcea-2b7b94312/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <i class="fab fa-linkedin-in social-icon" aria-hidden="true"></i>
           </a>
-          <a class="social-link" href="mailto:cristinaneculcea90@yahoo.com?subject=Contact" aria-label="Email cristinaneculcea90@yahoo.com" onmousedown="this.href='mailto:cristinaneculcea90@yahoo.com?subject=Contact'" onclick="openMailClient(event, 'cristinaneculcea90@yahoo.com', 'Contact')">
+          <a class="social-link" href="mailto:cristinaneculcea90@yahoo.com?subject=Contact" aria-label="Email cristinaneculcea90@yahoo.com" onclick="openMailClient(event, 'cristinaneculcea90@yahoo.com', 'Contact')">
             <i class="fas fa-envelope social-icon" aria-hidden="true"></i>
           </a>
-          <button class="social-link email-copy-btn" type="button" onclick="copyEmail('cristinaneculcea90@yahoo.com')" aria-label="Copy email">Copy</button>
           <a class="social-link" href="https://github.com/roscacristina90" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <i class="fab fa-github social-icon" aria-hidden="true"></i>
           </a>
@@ -229,40 +228,17 @@
   <script>
     // Robust mailto helper: tries location.href, then window.open, then copies email to clipboard
     function openMailClient(e, to, subject) {
-      console.log('openMailClient called', { to: to, subject: subject });
       if (e && e.preventDefault) e.preventDefault();
       const mailto = 'mailto:' + encodeURIComponent(to) + (subject ? '?subject=' + encodeURIComponent(subject) : '');
       try { window.location.href = mailto; return; } catch (err) {}
       try { const w = window.open(mailto, '_blank'); if (w) { w.focus(); return; } } catch (err) {}
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(to).then(function() {
-          showMailToast('Mail client did not open — email copied to clipboard');
-        }).catch(function() { showMailToast('Mail client did not open — please copy this email: ' + to); });
+          alert('Mail client did not open — email address copied to clipboard: ' + to);
+        }).catch(function() { alert('Mail client did not open. Please copy this email: ' + to); });
       } else {
-        showMailToast('Mail client did not open — please copy this email: ' + to);
+        alert('Mail client did not open. Please copy this email: ' + to);
       }
     }
-
-    function showMailToast(message) {
-      console.log('showMailToast:', message);
-      var t = document.getElementById('mail-toast');
-      if (!t) return alert(message);
-      t.textContent = message;
-      t.classList.add('visible');
-      t.style.display = 'block';
-      clearTimeout(t._hideTimeout);
-      t._hideTimeout = setTimeout(function() { t.classList.remove('visible'); t.style.display = 'none'; }, 4000);
-    }
-    function copyEmail(to) {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(to).then(function() { showMailToast('Email copied to clipboard'); }).catch(function() { showMailToast('Could not copy email. Please copy manually: ' + to); });
-      } else { showMailToast('Could not copy email. Please copy manually: ' + to); }
-    }
   </script>
-  <style>
-    /* simple toast for mail fallback */
-    #mail-toast { display:none; position:fixed; left:50%; bottom:24px; transform:translateX(-50%); background:#2a1b24; color:#fff; padding:10px 14px; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.4); z-index:2200; font-family:Roboto, Arial, sans-serif; }
-    #mail-toast.visible { opacity:1; transition:opacity 0.2s ease; }
-  </style>
-  <div id="mail-toast" role="status" aria-live="polite"></div>
 </html>

@@ -39,6 +39,7 @@
   <title>Portfolio</title>
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="./icons/favicon-alt.svg">
+  <link rel="alternate icon" type="image/svg+xml" href="./icons/favicon.svg">
   <link rel="alternate icon" type="image/png" href="./icons/image.png">
 </head>
 <body>
@@ -89,9 +90,13 @@
         <span class="close-popup" onclick="closeContactPopup()">&times;</span>
       </div>
       <div class="contact-info">
-        <!-- Email will be available as the styled contact button below -->
+        <!-- Optional: add a short intro or instructions here -->
       </div>
       <div class="contact-buttons">
+        <a href="mailto:cristinaneculcea90@yahoo.com?subject=Hello%20Cristina&body=Hi%20Cristina%2C%0A%0AI'm%20writing%20about..." class="contact-btn email-btn" title="Send me an email" target="_self" onclick="copyEmail(false)">
+          <span class="contact-icon"><i class="fas fa-envelope"></i></span>
+          <span class="contact-text">Email</span>
+        </a>
         <a href="https://www.linkedin.com/in/cristina-neculcea-2b7b94312/" class="contact-btn linkedin-btn" target="_blank">
           <span class="contact-icon"><i class="fab fa-linkedin-in"></i></span>
           <span class="contact-text">LinkedIn</span>
@@ -100,23 +105,41 @@
           <span class="contact-icon"><i class="fab fa-behance"></i></span>
           <span class="contact-text">Behance</span>
         </a>
-        <a href="mailto:cristinaneculcea90@yahoo.com?subject=Contact" class="contact-btn email-btn" target="_self" aria-label="Email cristinaneculcea90@yahoo.com" onmousedown="this.href='mailto:cristinaneculcea90@yahoo.com?subject=Contact'" onclick="openMailClient(event, 'cristinaneculcea90@yahoo.com', 'Contact')">
-          <span class="contact-icon"><i class="fas fa-envelope"></i></span>
-          <span class="contact-text">Email</span>
-        </a>
-        <button class="contact-btn email-copy-btn" type="button" onclick="copyEmail('cristinaneculcea90@yahoo.com')" aria-label="Copy email">Copy</button>
+        
       </div>
     </div>
-  </div>
-
-  <!-- debug / test link -->
-  <div style="position:fixed;right:12px;bottom:12px;z-index:2500;font-family:Roboto,Arial,sans-serif;">
-    <a href="mailto:cristinaneculcea90@yahoo.com?subject=Contact">Test mail link</a>
   </div>
 
   <script>
     function openContactPopup() {
       document.getElementById('contactPopup').style.display = 'flex';
+    }
+
+    // Copy email to clipboard but optionally don't block default behavior
+    function copyEmail(preventDefault = false) {
+      const email = 'cristinaneculcea90@yahoo.com';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(function() {
+          // show a small non-blocking confirmation
+          const notice = document.createElement('div');
+          notice.textContent = 'Email copied to clipboard';
+          notice.style.position = 'fixed';
+          notice.style.bottom = '20px';
+          notice.style.right = '20px';
+          notice.style.background = 'rgba(0,0,0,0.8)';
+          notice.style.color = '#fff';
+          notice.style.padding = '8px 12px';
+          notice.style.borderRadius = '4px';
+          notice.style.zIndex = 9999;
+          document.body.appendChild(notice);
+          setTimeout(function() { document.body.removeChild(notice); }, 2000);
+        }).catch(function() {
+          prompt('Copy this email address:', email);
+        });
+      } else {
+        prompt('Copy this email address:', email);
+      }
+      return !preventDefault; // if caller wanted to prevent default, they'd handle it
     }
 
     function closeContactPopup() {
@@ -133,7 +156,6 @@
 
     // Robust mailto helper: tries location.href, then window.open, then copies email to clipboard
     function openMailClient(e, to, subject) {
-      console.log('openMailClient called', { to: to, subject: subject });
       if (e && e.preventDefault) e.preventDefault();
       const mailto = 'mailto:' + encodeURIComponent(to) + (subject ? '?subject=' + encodeURIComponent(subject) : '');
       // Try location.href
@@ -150,50 +172,18 @@
       } catch (err) {
         // continue
       }
-      // Fallback: copy to clipboard and show toast
+      // Fallback: copy to clipboard
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(to).then(function() {
-          showMailToast('Mail client did not open — email copied to clipboard');
+          alert('Mail client did not open — email address copied to clipboard: ' + to);
         }).catch(function() {
-          showMailToast('Mail client did not open — please copy this email: ' + to);
+          alert('Mail client did not open. Please copy this email: ' + to);
         });
       } else {
-        showMailToast('Mail client did not open — please copy this email: ' + to);
-      }
-    }
-
-    function showMailToast(message) {
-      console.log('showMailToast:', message);
-      var t = document.getElementById('mail-toast');
-      if (!t) return alert(message); // fallback if toast missing
-      t.textContent = message;
-      t.classList.add('visible');
-      t.style.display = 'block';
-      clearTimeout(t._hideTimeout);
-      t._hideTimeout = setTimeout(function() {
-        t.classList.remove('visible');
-        t.style.display = 'none';
-      }, 4000);
-    }
-
-    function copyEmail(to) {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(to).then(function() {
-          showMailToast('Email copied to clipboard');
-        }).catch(function() {
-          showMailToast('Could not copy email. Please copy manually: ' + to);
-        });
-      } else {
-        showMailToast('Could not copy email. Please copy manually: ' + to);
+        alert('Mail client did not open. Please copy this email: ' + to);
       }
     }
   </script>
-  <style>
-    /* simple toast for mail fallback */
-    #mail-toast { display:none; position:fixed; left:50%; bottom:24px; transform:translateX(-50%); background:#2a1b24; color:#fff; padding:10px 14px; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.4); z-index:2200; font-family:Roboto, Arial, sans-serif; }
-    #mail-toast.visible { opacity:1; transition:opacity 0.2s ease; }
-  </style>
-  <div id="mail-toast" role="status" aria-live="polite"></div>
   
 </body>
 </html>

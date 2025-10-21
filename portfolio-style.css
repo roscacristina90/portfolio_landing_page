@@ -72,7 +72,7 @@ h1 {
 }
 
 .header-spacer {
-    width: 100px; /* Same width as back button for balance */
+    width: 140px; /* increased to keep space for centered title */
 }
 
 .back-button a {
@@ -303,18 +303,24 @@ h1 {
     50% { transform: rotate(5deg) scale(1.1); }
 }
 
-/* Additional light glow animation */
 @keyframes lightPulse {
     0%, 100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1); }
     50% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
 }
 
-/* Project Title Section */
+
 .project-title-section {
+    /* Fixed positioning ensures the title is centered relative to the viewport */
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 38px; /* vertically align inside header area - increased spacing */
     text-align: center;
-    flex: 1;
-    margin-top: 30px;
-    margin-left:0;
+    width: 100%;
+    max-width: 720px; /* keep space for header buttons */
+    margin: 0 auto;
+    pointer-events: auto; /* make the title clickable if needed */
+    z-index: 1100; /* above header elements */
 }
 .project-title {
     font-family: 'Poppins', sans-serif;
@@ -335,56 +341,58 @@ h1 {
     text-align: center;
 }
 
-
-
-.title-underline {
-    width: 200px;
-    height: 3px;
-    background: linear-gradient(90deg, 
-        transparent, 
-        rgba(74, 61, 75, 1), 
-        rgba(247, 211, 50, 1), 
-        rgba(113, 55, 118, 1), 
-        transparent);
-    margin: 10px auto;
-    border-radius: 2px;
-    animation: underlineFlow 2s linear infinite;
-}
-
-@keyframes underlineFlow {
-    0% { background-position: -200px 0; }
-    100% { background-position: 200px 0; }
-}
-
 .project-subtitle {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     color: rgba(255, 255, 255, 0.7);
-    margin: 5px 0 0 0;
+    margin: 15px 0 0 0;
     margin-bottom: 0;
     letter-spacing: 1px;
     text-transform: uppercase;
     text-align: center;
 }
 
-/* Portfolio Buttons - Clean Grid Layout */
 .portfolio-buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 0px 40px;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center child rows horizontally */
+    gap: 60px; /* vertical gap between top and bottom rows */
+    width: auto;
     max-width: 1200px;
-    height: 100vh;
-    padding: 120px 50px 100px 50px;
+    height: auto;
+    padding: 80px 40px 60px 40px;
     margin: 0 auto;
-    justify-items: center;
-    align-items: center;
     z-index: 10;
 }
 
-/* Button Rows for Diamond Layout */
+/* Wrapper that centers the grid block within the page */
+.portfolio-buttons-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0; /* ensure no extra side padding shifts centering */
+}
+
+@media (max-width: 900px) {
+    .portfolio-bottom {
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        gap: 20px;
+    }
+    .portfolio-buttons {
+        padding: 40px 20px;
+    }
+    .portfolio-buttons-wrapper {
+        padding: 0 20px;
+    }
+}
+
 .button-row {
+    display: contents;
+    align-items:center ;
+}
+
+.button-row.row-top {
     display: contents;
 }
 
@@ -538,6 +546,22 @@ h1 {
     background-repeat: no-repeat;
 }
 
+.portfolio-top {
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.portfolio-bottom {
+    display: grid;
+    grid-template-columns: repeat(4, 220px);
+    gap: 60px;
+    justify-content: center;
+    justify-items: center;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .portfolio-page {
@@ -567,7 +591,7 @@ h1 {
     }
     
     .portfolio-buttons {
-        gap: 15px;
+        gap: 30px;
     }
     
     .btn-content h3 {
@@ -578,175 +602,13 @@ h1 {
         font-size: 11px;
     }
 }
-
-/* Calm Floating Orbs */
-
-
-/* Floating Animation for Buttons */
-
-
-/* Ripple Effect */
-.ripple {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.6);
-    transform: scale(0);
-    animation: rippleEffect 0.6s linear;
-    pointer-events: none;
-}
-
-/* Enhanced Glow Effects */
-.portfolio-btn::after {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, 
-        rgba(255, 255, 255, 0.3),
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0.3));
-    border-radius: 50%;
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-/* Gaming Accent Lights */
-.gaming-accents {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none;
-}
-
-.accent-light {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 100, 100, 0.8), transparent 70%);
-    animation: accentPulse 2s ease-in-out infinite alternate;
-}
-
-.accent-light.accent-1 { 
-    top: 10px; left: 10px; 
-    background: radial-gradient(circle, rgba(255, 0, 100, 0.8), transparent 70%);
-    animation-delay: 0s; 
-}
-
-.accent-light.accent-2 { 
-    top: 10px; right: 10px; 
-    background: radial-gradient(circle, rgba(0, 255, 200, 0.8), transparent 70%);
-    animation-delay: 0.5s; 
-}
-
-.accent-light.accent-3 { 
-    bottom: 10px; left: 10px; 
-    background: radial-gradient(circle, rgba(100, 200, 255, 0.8), transparent 70%);
-    animation-delay: 1s; 
-}
-
-.accent-light.accent-4 { 
-    bottom: 10px; right: 10px; 
-    background: radial-gradient(circle, rgba(255, 200, 0, 0.8), transparent 70%);
-    animation-delay: 1.5s; 
-}
-
-@keyframes accentPulse {
-    0% { opacity: 0.4; transform: scale(1); }
-    100% { opacity: 1; transform: scale(1.5); }
-}
-
-/* Floating UI Elements */
-.floating-ui {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none;
-}
-
-.ui-element {
-    position: absolute;
-    background: rgba(0, 20, 40, 0.9);
-    color: #00ff88;
-    font-family: 'Courier New', monospace;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 8px 12px;
-    border: 1px solid rgba(0, 255, 150, 0.5);
-    border-radius: 4px;
-    box-shadow: 
-        0 0 20px rgba(0, 255, 150, 0.3),
-        inset 0 0 10px rgba(0, 100, 50, 0.2);
-    animation: floatUI 8s ease-in-out infinite;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.ui-element.ui-1 {
-    top: -50px;
-    left: 20%;
-    animation-delay: 0s;
-}
-
-.ui-element.ui-2 {
-    top: -50px;
-    right: 20%;
-    animation-delay: 2s;
-}
-
-.ui-element.ui-3 {
-    bottom: -50px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation-delay: 4s;
-    color: #ff6600;
-    border-color: rgba(255, 100, 0, 0.5);
-    box-shadow: 
-        0 0 20px rgba(255, 100, 0, 0.3),
-        inset 0 0 10px rgba(100, 50, 0, 0.2);
-}
-
-
-
-@media (max-width: 480px) {
-    .header {
-        flex-direction: column;
-        gap: 15px;
-        margin-bottom: 30px;
-    }
-    
-    .page-title {
-        margin-right: 0;
-        font-size: 24px;
-    }
-    
-    .gaming-tablet-container {
-        transform: scale(0.7);
-    }
-    
-    .portfolio-buttons {
-        gap: 15px;
-        padding: 20px;
-    }
-    
-    .btn-content h3 {
-        font-size: 12px;
-    }
-    
-
-}
-
 /* Responsive Footer */
 @media (max-width: 768px) {
     .footer-disclaimer {
         bottom: 15px;
-        right: 15px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
     }
     
     .educational-notice {
@@ -755,5 +617,55 @@ h1 {
     
     .copyright {
         font-size: 12px;
+    }
+}
+
+/* Footer placement & styling for desktop */
+.footer-disclaimer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 30px;
+    z-index: 1001;
+    display: flex;
+    justify-content: center; /* center the inner notice */
+    align-items: center;
+    pointer-events: none; /* keep footer non-interactive by default */
+    padding: 0 12px; /* small side padding to avoid touching screen edges on small viewports */
+}
+
+.educational-notice {
+    font-family: 'Poppins-Medium', sans-serif;
+    font-size: 12px;
+    color: rgba(76, 65, 76, 0.81);
+    padding: 6px 10px;
+    text-align: center;
+    display: inline-block;
+}
+
+/* Make sure footer text is a block-level centered element on small screens */
+@media (max-width: 480px) {
+    .educational-notice {
+        display: block;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+        text-align: center;
+        pointer-events: none;
+    }
+}
+
+/* Add top padding to main content to create breathing room below header/title */
+.main-content {
+    padding-top: 60px; /* desktop spacing */
+}
+
+@media (max-width: 768px) {
+    .project-title-section {
+        top: 30px;
+    }
+
+    .main-content {
+        padding-top: 50px; /* slightly less on smaller screens */
     }
 }

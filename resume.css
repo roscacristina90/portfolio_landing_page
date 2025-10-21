@@ -1256,13 +1256,10 @@ button {
 
 
 /* On hover only: show gradient fill on icons and a small lift */
-.social-link:hover .social-icon {
-  /* use the site's button gradient */
-  background: linear-gradient(52.49deg, rgba(74,61,75,1) 16.34%, rgba(247,211,50,1) 25.48%, rgba(113,55,118,1) 54.81%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; /* for WebKit-based browsers */
-  background-clip: text; /* non-prefixed */
-  color: transparent;
+/* Simplified hover for social icons: no gradient fill, just a color change and a small lift */
+.social-link:hover .social-icon,
+.social-link:focus .social-icon {
+  color: #e1cf5d; /* subtle gold highlight */
   transform: translateY(-2px);
 }
 
