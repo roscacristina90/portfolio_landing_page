@@ -4,17 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Resume</title>
-    <!-- Favicons: use relative links; script below will adjust to GitHub Pages base path -->
     <link rel="icon" type="image/svg+xml" href="icons/favicon-alt.svg">
   <link rel="alternate icon" type="image/svg+xml" href="icons/favicon.svg">
   <link rel="alternate icon" type="image/png" href="icons/image.png">
   <script>
     (function(){
-      // Compute a repo base for GitHub Pages without including the filename.
       var repoBase = '';
       try {
         if (location.hostname && location.hostname.indexOf('github.io') !== -1) {
-          var parts = location.pathname.split('/'); // ['', 'repo', 'page.html']
+          var parts = location.pathname.split('/'); 
           if (parts.length > 1 && parts[1]) {
             repoBase = '/' + parts[1];
           }
@@ -234,9 +232,10 @@
           <a class="social-link" href="https://www.linkedin.com/in/cristina-neculcea-2b7b94312/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <i class="fab fa-linkedin-in social-icon" aria-hidden="true"></i>
           </a>
-          <a class="social-link" href="mailto:cristinaneculcea90@yahoo.com?subject=Contact" aria-label="Email cristinaneculcea90@yahoo.com" onclick="openMailClient(event, 'cristinaneculcea90@yahoo.com', 'Contact')">
+          <!-- Replaced mailto anchor with a button that opens the copy popup -->
+          <button class="social-link email-copy email-copy-button" type="button" data-email="cristinaneculcea90@yahoo.com" aria-label="Copy email cristinaneculcea90@yahoo.com">
             <i class="fas fa-envelope social-icon" aria-hidden="true"></i>
-          </a>
+          </button>
           <a class="social-link" href="https://github.com/roscacristina90" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <i class="fab fa-github social-icon" aria-hidden="true"></i>
           </a>
@@ -259,5 +258,34 @@
         alert('Mail client did not open. Please copy this email: ' + to);
       }
     }
+  </script>
+  <script>
+    // Attach click handler for the replacement email-copy button(s).
+    (function () {
+      document.addEventListener('click', function (e) {
+        const btn = e.target.closest('.email-copy');
+        if (!btn) return;
+        e.preventDefault();
+        const email = btn.getAttribute('data-email') || 'cristinaneculcea90@yahoo.com';
+        const popup = document.getElementById('email-popup');
+        if (popup) {
+          const rect = btn.getBoundingClientRect();
+          popup.style.left = (rect.left + window.scrollX) + 'px';
+          popup.style.top = (rect.top + window.scrollY + 28) + 'px';
+          popup.querySelector('.email-address').textContent = email;
+          popup.setAttribute('aria-hidden', 'false');
+          popup.classList.add('visible');
+        } else {
+          // fallback: copy directly and show alert
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(email).then(function () {
+              alert('Email copied to clipboard: ' + email);
+            }).catch(function () { alert('Please copy this email: ' + email); });
+          } else {
+            alert('Please copy this email: ' + email);
+          }
+        }
+      });
+    })();
   </script>
 </html>

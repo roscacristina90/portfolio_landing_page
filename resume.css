@@ -1317,6 +1317,28 @@ button {
   cursor: pointer;
 }
 
+/* Email copy button (replaces mailto anchor) */
+.email-copy-button {
+  background: transparent;
+  border: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.email-copy-button .social-icon {
+  color: #fff;
+}
+.email-copy-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+
 .social-link:hover .social-icon,
 .social-link:focus .social-icon {
   transform: translateY(-2px);

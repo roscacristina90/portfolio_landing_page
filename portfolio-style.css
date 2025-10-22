@@ -1,8 +1,8 @@
-/* Pointer cursor for Contact Me button on main page */
+
 .contact-me:hover {
     cursor: pointer;
 }
-/* Floating up animation on hover for portfolio buttons */
+
 @keyframes floatUpHover {
     0% { transform: none; }
     50% { transform: translateY(-18px); }
@@ -21,7 +21,6 @@ html, body {
 .portfolio-page {
     height: 100vh;
     max-height: 100vh;
-    /* simplified: use a solid background color instead of gradient */
     background: #1E0F1B;
     padding: 0;
     font-family: "Roboto-Regular", sans-serif;
@@ -33,7 +32,6 @@ html, body {
     justify-content: center;
 }
 
-/* Shared centering wrapper used across pages to align content horizontally */
 .site-container {
     width: 100%;
     max-width: 1200px;
@@ -59,7 +57,6 @@ h1 {
     z-index: 999;
 }
 
-/* Header */
 .header {
     position: fixed;
     top: 20px;
@@ -72,7 +69,7 @@ h1 {
 }
 
 .header-spacer {
-    width: 140px; /* increased to keep space for centered title */
+    width: 140px; 
 }
 
 .back-button a {
@@ -103,7 +100,6 @@ h1 {
     display: inline-block;
 }
 
-/* Header Right Side */
 .header-right {
     text-align: right;
 }
@@ -123,7 +119,6 @@ h1 {
     letter-spacing: 0.5px;
 }
 
-/* Header Buttons */
 .header-buttons {
     display: flex;
     gap: 2rem;
@@ -178,7 +173,6 @@ h1 {
     transform: translateX(-3px) scale(0.98);
 }
 
-/* Main Content */
 .main-content {
     display: flex;
     flex-direction: column;
@@ -190,20 +184,9 @@ h1 {
     overflow: hidden;
 }
 
-/* Side Gradient Elements */
 .main-content::before {
     content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 300px;
-    height: 100%;
-    background: linear-gradient(90deg, 
-        rgba(113, 55, 118, 0.7) 0%, 
-        rgba(247, 211, 50, 0.744) 50%, 
-        transparent 100%);
-    z-index: 2;
-    pointer-events: none;
+    display: none;
 }
 
 .main-content::after {
@@ -211,33 +194,12 @@ h1 {
     position: absolute;
     right: 0;
     top: 0;
-    /* removed right-side decorative gradient */
     width: 0;
     height: 100%;
     background: none;
     z-index: 2;
     pointer-events: none;
 }
-/* Digital Grid Background */
-.digital-grid {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-        linear-gradient(rgba(0, 150, 255, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 150, 255, 0.1) 1px, transparent 1px);
-    background-size: 50px 50px;
-    animation: gridMove 20s linear infinite;
-}
-
-@keyframes gridMove {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(50px, 50px); }
-}
-
-/* HUD Elements */
 .hud-elements {
     position: absolute;
     top: 0;
@@ -280,22 +242,7 @@ h1 {
     right: 20px;
     border-left: none;
     border-top: none;
-}
 
-/* Background Elements */
-.main-content::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: 
-        radial-gradient(circle at 25% 25%, rgba(80, 80, 80, 0.1) 0%, transparent 25%),
-        radial-gradient(circle at 75% 75%, rgba(100, 100, 100, 0.05) 0%, transparent 25%),
-        radial-gradient(circle at 50% 60%, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
-    animation: backgroundShift 20s ease-in-out infinite;
-    z-index: 0;
 }
 
 @keyframes backgroundShift {
@@ -310,17 +257,16 @@ h1 {
 
 
 .project-title-section {
-    /* Fixed positioning ensures the title is centered relative to the viewport */
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
-    top: 38px; /* vertically align inside header area - increased spacing */
+    top: 38px; 
     text-align: center;
     width: 100%;
-    max-width: 720px; /* keep space for header buttons */
+    max-width: 720px; 
     margin: 0 auto;
-    pointer-events: auto; /* make the title clickable if needed */
-    z-index: 1100; /* above header elements */
+    pointer-events: auto;
+    z-index: 1100;
 }
 .project-title {
     font-family: 'Poppins', sans-serif;
@@ -355,8 +301,8 @@ h1 {
 .portfolio-buttons {
     display: flex;
     flex-direction: column;
-    align-items: center; /* center child rows horizontally */
-    gap: 60px; /* vertical gap between top and bottom rows */
+    align-items: center; 
+    gap: 60px;
     width: auto;
     max-width: 1200px;
     height: auto;
@@ -364,13 +310,11 @@ h1 {
     margin: 0 auto;
     z-index: 10;
 }
-
-/* Wrapper that centers the grid block within the page */
 .portfolio-buttons-wrapper {
     display: flex;
     justify-content: center;
     width: 100%;
-    padding: 0; /* ensure no extra side padding shifts centering */
+    padding: 0;
 }
 
 @media (max-width: 900px) {
@@ -425,14 +369,10 @@ h1 {
         inset 0 3px 0 rgba(255, 255, 255, 0.9),
         inset 0 -3px 0 rgba(0, 0, 0, 0.15);
     cursor: pointer;
-    pointer-events: auto; /* ensure the button receives pointer events */
-    z-index: 50; /* sit above low z-index decorative elements */
-    touch-action: manipulation; /* improve tap responsiveness on mobile */
-    -webkit-tap-highlight-color: rgba(0,0,0,0); /* remove tap highlight */
-    display: inline-flex; /* make the <a> itself an interactive box */
-    align-items: center;
-    justify-content: center;
-    text-decoration: none; /* ensure no underline */
+    pointer-events: auto;
+    z-index: 50; 
+    touch-action: manipulation; 
+    -webkit-tap-highlight-color: rgba(0,0,0,0); 
     transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
     display: flex;
     align-items: center;
@@ -467,15 +407,9 @@ h1 {
 }
 
 .btn-content {
-    /* fill the entire anchor so clicking anywhere inside the circle activates the link */
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     text-align: center;
-    z-index: 2;
-    pointer-events: auto;
+    z-index: 1;
+    position: relative;
 }
 
 .btn-content h3 {
@@ -686,7 +620,7 @@ h1 {
 }
 
 .main-content {
-    padding-top: 60px; /* desktop spacing */
+    padding-top: 60px; 
 }
 
 @media (max-width: 768px) {
@@ -695,6 +629,6 @@ h1 {
     }
 
     .main-content {
-        padding-top: 50px; /* slightly less on smaller screens */
+        padding-top: 50px; 
     }
 }

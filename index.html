@@ -37,7 +37,6 @@
    }
   </style>
   <title>Portfolio</title>
-  <!-- Favicons: use relative paths and a small script to detect GitHub Pages base -->
   <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
   <link rel="alternate icon" type="image/svg+xml" href="icons/favicon-alt.svg">
   <link rel="icon" type="image/png" href="icons/image.png">
@@ -49,7 +48,7 @@
       var repoBase = '';
       try {
         if (location.hostname && location.hostname.indexOf('github.io') !== -1) {
-          var parts = location.pathname.split('/'); // ['', 'repo', 'page.html']
+          var parts = location.pathname.split('/'); 
           if (parts.length > 1 && parts[1]) {
             repoBase = '/' + parts[1];
           }
@@ -70,7 +69,6 @@
         el.rel = rel; if(type) el.type = type; el.href = href; document.head.appendChild(el);
       }
 
-      // set preferred icons
       upsert('icon','image/svg+xml', map.svg);
       upsert('alternate icon','image/svg+xml', map.alt);
       upsert('icon','image/png', map.png);
@@ -216,6 +214,45 @@
         alert('Mail client did not open. Please copy this email: ' + to);
       }
     }
+  </script>
+  <script>
+   
+    document.addEventListener('DOMContentLoaded', function () {
+      var frame381 = document.querySelector('.frame-381');
+      var frame382 = document.querySelector('.frame-382');
+      var frame3822 = document.querySelector('.frame-3822');
+
+      if (frame381) {
+        frame381.addEventListener('click', function (e) {
+          var a = frame381.querySelector('a');
+          if (a && a.href) {
+           
+            if (e.target.closest('a')) return;
+            window.location.href = a.getAttribute('href');
+          }
+        });
+      }
+
+      if (frame382) {
+        frame382.addEventListener('click', function (e) {
+          var a = frame382.querySelector('a');
+          if (a && a.href) {
+            if (e.target.closest('a')) return;
+            window.location.href = a.getAttribute('href');
+          }
+        });
+      }
+
+      if (frame3822) {
+        frame3822.addEventListener('click', function (e) {
+          var btn = frame3822.querySelector('button');
+          if (btn) {
+            if (e.target === btn || e.target.closest('button')) return; 
+            btn.click();
+          }
+        });
+      }
+    });
   </script>
   
 </body>
