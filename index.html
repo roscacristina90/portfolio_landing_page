@@ -77,43 +77,36 @@
   </script>
 </head>
 <body>
-  <div class="portfolio-landing-page site-container">
-    <div class="frame-389">
-      <div class="hey-i-m-cristina">
-        <span>
-          <span class="hey-i-m-cristina-span">Hey I’m</span>
-          <span class="hey-i-m-cristina-span2">Cristina</span>
-        </span>
-      </div>
-      <div class="front-end-developer">Front-end developer </div>
-      <div
-        class="i-m-starting-out-in-design-and-development-with-a-passion-for-learning-and-building-this-portfolio-is-a-glimpse-into-my-growth-and-the-projects-i-m-proud-of-so-far"
-      >
-        “I’m starting out in design and development with a passion for learning
+  <div class="portfolio-landing-page">
+    <div class="main-container">
+      <h2>
+        <span class="h2-span">Hey I'm</span>
+        <span class="h2-span2">Cristina</span>
+      </h2>
+      <h1>Front-end developer</h1>
+      <p>
+        "I'm starting out in design and development with a passion for learning
         and building. This portfolio is a glimpse into my growth and the projects
-        I’m proud of so far.”
-      </div>
-      <div class="frame-385">
-        <div class="frame-381">
-          <a href="portfolio.html" class="m-y-portfolio">MY PORTFOLIO</a>
-        </div>
-        <div class="frame-382">
-          <a href="resume.html" class="resume">RESUME</a>
-        </div>
+        I'm proud of so far."
+      </p>
+      <div class="wrap1">
+        <button class="button1" onclick="window.location.href='portfolio.html'">MY PORTFOLIO</button>
+        <button class="button2" onclick="window.location.href='resume.html'">RESUME</button>
       </div>
     </div>
-    <div class="frame-383">
+    <div class="logo-container">
       <div class="profile-logo">
         <img src="LOGO.svg" alt="Logo">
       </div>
     </div>
-    <div class="frame-388">
-      <div class="frame-384"></div>
+    <div class="photo-container">
+      <div class="photo-frame"></div>
       <div class="profile-image"></div>
     </div>
-    <div class="frame-3822">
-      <button class="contact-me" type="button" aria-haspopup="dialog" aria-controls="contactPopup" onclick="openContactPopup()">CONTACT ME</button>
-    </div>
+    <button class="button3" type="button" aria-haspopup="dialog" aria-controls="contactPopup" onclick="openContactPopup()">
+      <span class="button3-text">CONTACT ME</span>
+      <span class="button3-icon"><i class="fas fa-bars"></i></span>
+    </button>
   </div>
 
   <!-- Contact Popup -->
@@ -214,45 +207,6 @@
         alert('Mail client did not open. Please copy this email: ' + to);
       }
     }
-  </script>
-  <script>
-   
-    document.addEventListener('DOMContentLoaded', function () {
-      var frame381 = document.querySelector('.frame-381');
-      var frame382 = document.querySelector('.frame-382');
-      var frame3822 = document.querySelector('.frame-3822');
-
-      if (frame381) {
-        frame381.addEventListener('click', function (e) {
-          var a = frame381.querySelector('a');
-          if (a && a.href) {
-           
-            if (e.target.closest('a')) return;
-            window.location.href = a.getAttribute('href');
-          }
-        });
-      }
-
-      if (frame382) {
-        frame382.addEventListener('click', function (e) {
-          var a = frame382.querySelector('a');
-          if (a && a.href) {
-            if (e.target.closest('a')) return;
-            window.location.href = a.getAttribute('href');
-          }
-        });
-      }
-
-      if (frame3822) {
-        frame3822.addEventListener('click', function (e) {
-          var btn = frame3822.querySelector('button');
-          if (btn) {
-            if (e.target === btn || e.target.closest('button')) return; 
-            btn.click();
-          }
-        });
-      }
-    });
   </script>
   
 </body>
