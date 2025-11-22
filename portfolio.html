@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./vars.css">
+    <link rel="stylesheet" href="./portfolio-style.css">
+    
+    <style>
+     a,
+     button,
+     input,
+     select,
+     h1,
+     h2,
+     h3,
+     h4,
+     h5,
+     * {
+         box-sizing: border-box;
+         margin: 0;
+         padding: 0;
+         border: none;
+         text-decoration: none;
+         background: none;
+     
+         -webkit-font-smoothing: antialiased;
+     }
+     
+     menu, ol, ul {
+         list-style-type: none;
+         margin: 0;
+         padding: 0;
+     }
+     </style>
+        <title>My Portfolio</title>
+        <!-- Favicons and script to adjust paths on GitHub Pages -->
+        <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+        <link rel="alternate icon" type="image/svg+xml" href="icons/favicon-alt.svg">
+        <link rel="icon" type="image/png" href="icons/image.png">
+        <link rel="shortcut icon" href="icons/image.png">
+        <script>
+            (function(){
+                var repoBase = '';
+                try {
+                    if (location.hostname && location.hostname.indexOf('github.io') !== -1) {
+                        var parts = location.pathname.split('/'); 
+                        if (parts.length > 1 && parts[1]) {
+                            repoBase = '/' + parts[1];
+                        }
+                    }
+                } catch (e) { repoBase = ''; }
+
+                var map = { svg: repoBase + '/icons/favicon.svg', alt: repoBase + '/icons/favicon-alt.svg', png: repoBase + '/icons/image.png' };
+
+                function up(rel, type, href){
+                    var sel = 'link[rel="' + rel + '"]', el = document.head.querySelector(sel);
+                    if (el) { el.href = href; if (type) el.type = type; return; }
+                    el = document.createElement('link'); el.rel = rel; if (type) el.type = type; el.href = href; document.head.appendChild(el);
+                }
+
+                up('icon','image/svg+xml', map.svg);
+                up('alternate icon','image/svg+xml', map.alt);
+                up('icon','image/png', map.png);
+                up('shortcut icon', null, map.png);
+            })();
+        </script>
+</head>
+<body>
+    <div class="portfolio-page">
+        <!-- Header -->
+        <div class="header">
+            <div class="back-button">
+                <a href="index.html"><span class="arrow">←</span> BACK</a>
+            </div>
+            <!-- Project Title -->
+            <div class="project-title-section">
+                <h2 class="project-title">MY PROJECTS</h2>
+                <div class="title-underline"></div>
+                <p class="project-subtitle">Portfolio Collection</p>
+            </div>
+            <div class="header-spacer"></div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            
+            <!-- Portfolio Buttons Container -->
+            <div class="portfolio-buttons-wrapper">
+                <div class="portfolio-buttons">
+                    <!-- Top Row (centered) -->
+                    <div class="portfolio-top">
+                        <a href="https://roscacristina90.github.io/CoteBrasserie/" target="_blank" class="portfolio-btn btn-1">
+                            <div class="btn-content">
+                                <h3>Cote Brasserie</h3>
+                                <p>Restaurant Website</p>
+                            </div>
+                        </a>
+                        <a href="https://roscacristina90.github.io/services-website/" target="_blank" class="portfolio-btn btn-2">
+                            <div class="btn-content">
+                                <h3>Service Website</h3>
+                                <p>Business Services</p>
+                            </div>
+                        </a>
+                        <a href="https://roscacristina90.github.io/eplant/" target="_blank" class="portfolio-btn btn-3">
+                            <div class="btn-content">
+                                <h3>E-Plant</h3>
+                                <p>E-commerce Store</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Bottom Grid (4 items) -->
+                    <div class="portfolio-bottom">
+                        <a href="https://www.behance.net/gallery/199761669/rhode-e-ccomerce-redesign" target="_blank" class="portfolio-btn btn-5">
+                            <div class="btn-content">
+                                <h3>Rhode Redesign</h3>
+                                <p>UI/UX Design</p>
+                            </div>
+                        </a>
+                        <a href="https://www.behance.net/gallery/202920177/dashboard" target="_blank" class="portfolio-btn btn-7">
+                            <div class="btn-content">
+                                <h3>Dashboard</h3>
+                                <p>UI/UX Design</p>
+                            </div>
+                        </a>
+                        <a href="https://www.behance.net/gallery/202919975/WOW-EFECT-HERO-SECTION" target="_blank" class="portfolio-btn btn-8">
+                            <div class="btn-content">
+                                <h3>WOW Effect Carnival</h3>
+                                <p>UI/UX Design</p>
+                            </div>
+                        </a>
+                        <a href="https://www.behance.net/gallery/202919451/Hero-Wow-Effect" target="_blank" class="portfolio-btn btn-9">
+                            <div class="btn-content">
+                                <h3>Flower shop </h3>
+                                <p>UI/UX Design</p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Mobile Footer Text -->
+                    <div class="mobile-footer-text">
+                        <div class="educational-notice-mobile">© 2025 Images used for educational/course project purposes only.</div>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer Disclaimer -->
+            <div class="footer-disclaimer">
+                <div class="educational-notice">© 2025 Images used for educational/course project purposes only.</div>
+            </div>
+        </div>
+    </body>
+    </html>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var backButton = document.querySelector('.back-button');
+            if (backButton) {
+                backButton.addEventListener('click', function (e) {
+                    var a = backButton.querySelector('a');
+                    if (a && a.href) {
+                        if (e.target.closest('a')) return; 
+                        window.location.href = a.getAttribute('href');
+                    }
+                });
+            }
+        });
+    </script>

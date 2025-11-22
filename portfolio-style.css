@@ -1,0 +1,505 @@
+html,
+body {
+    overflow: hidden;
+    height: 100%;
+}
+
+.portfolio-page {
+    height: 100vh;
+    max-height: 100vh;
+    background: #1E0F1B;
+    padding: 0;
+    font-family: "Roboto-Regular", sans-serif;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    color: white;
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    font-size: 2rem;
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.36px;
+    z-index: 999;
+}
+
+.header {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.header-spacer {
+    width: 140px;
+}
+
+.back-button a {
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: "Poppins-Bold", sans-serif;
+    padding: 0.58875rem 1.76625rem 0.58875rem 1.76625rem;
+    border-radius: 5rem;
+    width: 11.3125rem;
+    height: 2.74rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.5px solid white;
+    transition: all 0.3s ease;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.back-button .arrow {
+    font-size: 18px;
+    text-transform: none;
+    display: inline-block;
+}
+
+.educational-notice {
+    font-family: 'Poppins-Medium', sans-serif;
+    font-size: 10px;
+    color: rgba(85, 75, 85, 0.81);
+    text-align: center;
+    margin-bottom: 0px;
+    letter-spacing: 0.5px;
+}
+
+.back-button a:hover {
+    background: linear-gradient(52.49deg,
+            rgba(74, 61, 75, 1) 16.34%,
+            rgba(247, 211, 50, 1) 25.48%,
+            rgba(113, 55, 118, 1) 54.81%);
+    transform: translateX(-5px);
+}
+
+.back-button a:active {
+    background: linear-gradient(52.49deg,
+            rgba(74, 61, 75, 1) 16.34%,
+            rgba(247, 211, 50, 1) 25.48%,
+            rgba(113, 55, 118, 1) 54.81%);
+    transform: translateX(-3px) scale(0.98);
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-title-section {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 38px;
+    text-align: center;
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    pointer-events: auto;
+    z-index: 1100;
+}
+
+.project-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    background: linear-gradient(52.49deg,
+            rgba(74, 61, 75, 1) 16.344648599624634%,
+            rgba(247, 211, 50, 1) 25.484153628349304%,
+            rgba(113, 55, 118, 1) 54.807889461517334%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.project-subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 15px 0 0 0;
+    margin-bottom: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.portfolio-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    width: auto;
+    max-width: 1200px;
+    height: auto;
+    padding: 80px 40px 60px 40px;
+    margin: 0 auto;
+    z-index: 10;
+}
+
+.portfolio-buttons-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+}
+
+.portfolio-btn {
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 50%;
+    width: 220px;
+    height: 220px;
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.5),
+        0 12px 30px rgba(0, 0, 0, 0.4),
+        0 0 0 2px rgba(255, 255, 255, 0.2),
+        inset 0 3px 0 rgba(255, 255, 255, 0.9),
+        inset 0 -3px 0 rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    pointer-events: auto;
+    z-index: 50;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(30px) saturate(200%);
+    margin: 0;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    animation: buttonPulse 8s ease-in-out infinite;
+}
+
+@keyframes buttonPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 15px 40px rgba(0, 0, 0, 0.4),
+            0 8px 20px rgba(0, 0, 0, 0.3),
+            0 0 0 1px rgba(255, 255, 255, 0.1);
+    }
+
+    50% {
+        box-shadow:
+            0 20px 50px rgba(0, 0, 0, 0.5),
+            0 12px 30px rgba(0, 0, 0, 0.4),
+            0 0 0 1px rgba(255, 255, 255, 0.2),
+            0 0 30px rgba(0, 255, 150, 0.1);
+    }
+}
+
+.portfolio-btn:active {
+    transform: translateY(0px);
+}
+
+.btn-content {
+    text-align: center;
+    z-index: 1;
+    position: relative;
+}
+
+.btn-content h3 {
+    font-size: 18px;
+    font-weight: 700;
+    font-family: "Poppins-Bold", sans-serif;
+    color: #ffffff;
+    margin-bottom: 5px;
+    letter-spacing: -0.01em;
+    text-rendering: optimizeLegibility;
+    text-align: center;
+    line-height: 110%;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+}
+
+.btn-content p {
+    font-size: 14px;
+    color: #ece9eb;
+    font-weight: 400;
+    font-family: "Roboto-Regular", sans-serif;
+    letter-spacing: -0.01em;
+    text-align: center;
+    line-height: 110%;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+}
+
+.btn-1 {
+    background:
+        linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%),
+        url('https://roscacristina90.github.io/CoteBrasserie/C%C3%B4te%20Brasserie_files/2-what-is-fine-dining-example2.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.btn-2 {
+    background:
+        linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%),
+        url('https://roscacristina90.github.io/services-website/pictures/minimalist-black-interior-with-black-sofa-1268-31786-10.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.btn-3 {
+    background:
+        linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%),
+        url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.btn-4 {
+    background:
+        linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%),
+        url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.btn-5 {
+    background:
+        linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%),
+        url('Buttons picture/rhode.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.btn-7 {
+    background:
+        linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%),
+        url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.btn-8 {
+    background:
+        linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%),
+        url('Buttons picture/CARNIVAL.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.btn-9 {
+    background:
+        linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%),
+        url('Buttons picture/flower shop.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.portfolio-top {
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.portfolio-bottom {
+    display: grid;
+    grid-template-columns: repeat(4, 220px);
+    gap: 60px;
+    justify-content: center;
+    justify-items: center;
+}
+
+.footer-disclaimer {
+    position: fixed;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.mobile-footer-text {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+
+    html,
+    body {
+        overflow-y: scroll;
+        height: auto;
+    }
+
+    .portfolio-page {
+        height: auto;
+        min-height: 100vh;
+        max-height: none;
+        overflow: visible;
+    }
+
+    .main-content {
+        height: auto;
+        overflow: visible;
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        background: #1E0F1B;
+        padding: 20px;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .header-spacer {
+        display: none;
+    }
+
+    .back-button {
+        order: 1;
+        margin: 0;
+        display: block;
+    }
+
+    .back-button a {
+        margin-top: 0;
+        width: auto;
+        height: auto;
+        padding: 0;
+        border: none;
+        font-size: 2rem;
+        color: white;
+    }
+
+    .back-button a .arrow {
+        display: inline;
+    }
+
+    .back-button a {
+        font-size: 0;
+    }
+
+    .back-button a .arrow {
+        font-size: 2rem;
+    }
+
+    .back-button a:hover {
+        background: none !important;
+        transform: translateX(-5px);
+    }
+
+    .project-title-section {
+        position: static;
+        transform: none;
+        order: 2;
+        margin-top: 30px;
+    }
+
+    .project-title {
+        font-size: 1.8rem;
+        letter-spacing: 1.5px;
+    }
+
+    .project-subtitle {
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+
+    .portfolio-top {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .portfolio-bottom {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .portfolio-btn {
+        width: 200px;
+        height: 200px;
+    }
+
+    .portfolio-buttons {
+        gap: 25px;
+        padding: 180px 20px 20px 20px;
+    }
+
+    .btn-content h3 {
+        font-size: 15px;
+    }
+
+    .btn-content p {
+        font-size: 12px;
+    }
+
+    .footer-disclaimer {
+        display: none;
+    }
+
+    .mobile-footer-text {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .educational-notice-mobile {
+        font-family: 'Poppins-Medium', sans-serif;
+        font-size: 8px;
+        color: rgba(85, 75, 85, 0.81);
+        text-align: center;
+        display: block;
+        margin: 0 auto;
+    }
+}

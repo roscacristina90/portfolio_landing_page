@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./vars.css">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  
+  <style>
+   a,
+   button,
+   input,
+   select,
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   * {
+       box-sizing: border-box;
+       margin: 0;
+       padding: 0;
+       border: none;
+       text-decoration: none;
+       background: none;
+   
+       -webkit-font-smoothing: antialiased;
+   }
+   
+   menu, ol, ul {
+       list-style-type: none;
+       margin: 0;
+       padding: 0;
+   }
+  </style>
+  <title>Portfolio</title>
+  <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+  <link rel="alternate icon" type="image/svg+xml" href="icons/favicon-alt.svg">
+  <link rel="icon" type="image/png" href="icons/image.png">
+  <link rel="shortcut icon" href="icons/image.png">
+  <meta name="theme-color" content="#1E0F1B">
+
+  <script>
+    (function(){
+      var repoBase = '';
+      try {
+        if (location.hostname && location.hostname.indexOf('github.io') !== -1) {
+          var parts = location.pathname.split('/'); 
+          if (parts.length > 1 && parts[1]) {
+            repoBase = '/' + parts[1];
+          }
+        }
+      } catch (e) { repoBase = ''; }
+
+      var map = {
+        svg: repoBase + '/icons/favicon.svg',
+        alt: repoBase + '/icons/favicon-alt.svg',
+        png: repoBase + '/icons/image.png'
+      };
+
+      function upsert(rel, type, href){
+        var sel = 'link[rel="' + rel + '"]';
+        var el = document.head.querySelector(sel);
+        if(el){ el.href = href; if(type) el.type = type; return; }
+        el = document.createElement('link');
+        el.rel = rel; if(type) el.type = type; el.href = href; document.head.appendChild(el);
+      }
+
+      upsert('icon','image/svg+xml', map.svg);
+      upsert('alternate icon','image/svg+xml', map.alt);
+      upsert('icon','image/png', map.png);
+      upsert('shortcut icon', null, map.png);
+    })();
+  </script>
+</head>
+<body>
+  <div class="portfolio-landing-page">
+    <div class="main-container">
+      <h2>
+        <span class="h2-span">Hey I'm</span>
+        <span class="h2-span2">Cristina</span>
+      </h2>
+      <h1>Front-end developer</h1>
+      <p>
+        "I'm starting out in design and development with a passion for learning
+        and building. This portfolio is a glimpse into my growth and the projects
+        I'm proud of so far."
+      </p>
+      <div class="wrap1">
+        <button class="button1" onclick="window.location.href='portfolio.html'">MY PORTFOLIO</button>
+        <button class="button2" onclick="window.location.href='resume.html'" style="display: none;">RESUME</button>
+      </div>
+    </div>
+    <div class="logo-container">
+      <div class="profile-logo">
+        <img src="LOGO.svg" alt="Logo">
+      </div>
+    </div>
+    <div class="photo-container">
+      <div class="photo-frame"></div>
+      <div class="profile-image"></div>
+    </div>
+    <button class="button3" type="button" aria-haspopup="dialog" aria-controls="contactPopup" onclick="openContactPopup()">
+      <span class="button3-text">CONTACT ME</span>
+      <span class="button3-icon"><i class="fas fa-envelope"></i></span>
+    </button>
+  </div>
+
+  <!-- Contact Popup -->
+  <div id="contactPopup" class="popup-overlay">
+    <div class="popup-content">
+      <div class="popup-header">
+        <h2>Get In Touch</h2>
+        <span class="close-popup" onclick="closeContactPopup()">&times;</span>
+      </div>
+      <div class="contact-info">
+      </div>
+      <div class="contact-buttons">
+        <a href="mailto:cristinaneculcea90@yahoo.com?subject=Hello%20Cristina&body=Hi%20Cristina%2C%0A%0AI'm%20writing%20about..." class="contact-btn email-btn" title="Send me an email" target="_self" onclick="copyEmail(false)">
+          <span class="contact-icon"><i class="fas fa-envelope"></i></span>
+          <span class="contact-text">Email</span>
+        </a>
+        <a href="https://www.linkedin.com/in/cristina-neculcea-2b7b94312/" class="contact-btn linkedin-btn" target="_blank">
+          <span class="contact-icon"><i class="fab fa-linkedin-in"></i></span>
+          <span class="contact-text">LinkedIn</span>
+        </a>
+        <a href="https://www.behance.net/cristinaneculcea" class="contact-btn behance-btn" target="_blank">
+          <span class="contact-icon"><i class="fab fa-behance"></i></span>
+          <span class="contact-text">Behance</span>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openContactPopup() {
+      document.getElementById('contactPopup').style.display = 'flex';
+      document.body.classList.add('popup-open');
+    }
+
+    function copyEmail(preventDefault = false) {
+      const email = 'cristinaneculcea90@yahoo.com';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(function() {
+          const notice = document.createElement('div');
+          notice.textContent = 'Email copied to clipboard';
+          notice.style.position = 'fixed';
+          notice.style.bottom = '20px';
+          notice.style.right = '20px';
+          notice.style.background = 'rgba(0,0,0,0.8)';
+          notice.style.color = '#fff';
+          notice.style.padding = '8px 12px';
+          notice.style.borderRadius = '4px';
+          notice.style.zIndex = 9999;
+          document.body.appendChild(notice);
+          setTimeout(function() { document.body.removeChild(notice); }, 2000);
+        }).catch(function() {
+          prompt('Copy this email address:', email);
+        });
+      } else {
+        prompt('Copy this email address:', email);
+      }
+      return !preventDefault; 
+    }
+
+    function closeContactPopup() {
+      document.getElementById('contactPopup').style.display = 'none';
+      document.body.classList.remove('popup-open');
+    }
+
+    window.onclick = function(event) {
+      var popup = document.getElementById('contactPopup');
+      if (event.target == popup) {
+        closeContactPopup();
+      }
+    }
+
+    function openMailClient(e, to, subject) {
+      if (e && e.preventDefault) e.preventDefault();
+      const mailto = 'mailto:' + encodeURIComponent(to) + (subject ? '?subject=' + encodeURIComponent(subject) : '');
+   
+      try {
+        window.location.href = mailto;
+        return;
+      } catch (err) {
+        
+      }
+     
+      try {
+        const w = window.open(mailto, '_blank');
+        if (w) { w.focus(); return; }
+      } catch (err) {
+     
+      }
+      
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(to).then(function() {
+          alert('Mail client did not open — email address copied to clipboard: ' + to);
+        }).catch(function() {
+          alert('Mail client did not open. Please copy this email: ' + to);
+        });
+      } else {
+        alert('Mail client did not open. Please copy this email: ' + to);
+      }
+    }
+  </script>
+  
+</body>
+</html>
